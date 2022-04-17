@@ -35,15 +35,9 @@
 
 #### 3.安装教程 
 
-1. 配置数据库和redis。先启动redis，再启动后端api服务，数据库请使用MySQL5.7，其他版本可能会有问题
-
-   ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/step1.png)
-
-   ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/step2.png)
-
-2. 配置后台前端  先npm install 下载依赖后，再npm run dev即可。
-
-   ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/step3.png)
+1.  配置数据库和redis。先启动redis，再启动后端api服务
+2.  数据库请使用MySQL5.7，其他版本可能会有问题
+3.  配置后台前端  先npm install 下载依赖后，再npm run dev即可
 
 #### 4.必看说明
 
@@ -51,13 +45,13 @@
 
    **移动端未开源**，需要源码联系客服。
 
-   ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/mine.png)
+   <img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/mine.jpg" style="zoom: 25%;" />
 
 2. **后台前端的代码**在**\src\main\resources\static\linfeng-community-vue**目录下！
 
 3. SQL文件免费，开源不易，**请左上角star后备注gitee的用户名加QQ群获取**
 
-![](https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.png)
+<img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg" style="zoom:25%;" />
 
 #### 5.版本更新记录
 
