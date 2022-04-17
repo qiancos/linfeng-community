@@ -33,15 +33,82 @@
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic03.png)
 
-#### 3.安装教程
+#### 3.安装教程 
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1. 配置数据库和redis。先启动redis，再启动后端api服务，数据库请使用MySQL5.7，其他版本可能会有问题
 
-#### 其他说明
+   ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/step1.png)
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+   ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/step2.png)
 
+2. 配置后台前端  先npm install 下载依赖后，再npm run dev即可。
+
+   ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/step3.png)
+
+#### 4.必看说明
+
+1. **后台管理系统和后台管理系统后端API已经全部开源**。
+
+   **移动端未开源**，需要源码联系客服。
+
+   ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/mine.png)
+
+2. **后台前端的代码**在**\src\main\resources\static\linfeng-community-vue**目录下！
+
+3. SQL文件免费，开源不易，**请左上角star后备注gitee的用户名加QQ群获取**
+
+![](https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.png)
+
+#### 5.版本更新记录
+
+2022.04.17
+
+**V1.2.1发布**
+
+1.新增防止重复提交注解
+
+2.扩大匿名访问权限
+
+3.优化小程序登录
+
+4.新增后台前端面板统计数据
+
+5.移动端用户手机号脱敏处理
+
+6.新增帖子上下架处理
+
+
+
+2022.04.04
+
+**V1.2发布**
+
+ 1.优化私聊模块
+
+ 2.新增置顶功能
+
+ 3.优化UI 
+
+4.优化消息已读未读的处理 
+
+5.其他bug修复
+
+
+
+2022.03.05
+
+**V1.1发布**
+
+移动端适配H5
+
+移动端分享功能优化
+
+移动端其他bug修复
+
+
+
+2022.01.29
+
+**V1.0发布**
+
+......
