@@ -41,21 +41,23 @@
 
 #### 4.必看说明
 
-1. **后台管理系统和后台管理系统后端API已经全部开源**。
+1.**后台前端的代码**在**\src\main\resources\static\linfeng-community-vue**目录下！
 
-   **移动端未开源**，需要源码联系客服。
+2.**后台管理系统和后台管理系统后端API已经全部开源**。
 
-   <img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/mine.jpg" style="zoom: 25%;" />
+**用户端代码未开源**，需要源码联系客服。
 
-2. **后台前端的代码**在**\src\main\resources\static\linfeng-community-vue**目录下！
+<img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/mine.jpg" style="zoom: 25%;" />
 
-3. SQL文件免费，开源不易，**请左上角star后备注gitee的用户名加QQ群获取**
+
+
+3. SQL文件开源的，在QQ群，开源不易，**请左上角star后备注gitee的用户名加QQ群（792343227）获取**
 
 <img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg" style="zoom:25%;" />
 
 #### 5.版本更新记录
 
-2022.04.17
+<u>2022.04.17</u>
 
 **V1.2.1发布**
 
@@ -73,7 +75,7 @@
 
 
 
-2022.04.04
+<u>2022.04.04</u>
 
 **V1.2发布**
 
@@ -89,7 +91,7 @@
 
 
 
-2022.03.05
+<u>2022.03.05</u>
 
 **V1.1发布**
 
@@ -101,8 +103,7 @@
 
 
 
-2022.01.29
+<u>2022.01.29</u>
 
 **V1.0发布**
 
-......
