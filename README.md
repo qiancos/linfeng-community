@@ -51,7 +51,7 @@
 
 
 
-3. SQL文件开源的，在QQ群，开源不易，**请左上角star后备注gitee的用户名加QQ群（792343227）获取**
+3. SQL文件开源的，在QQ群，开源不易，**请左上角star后备注gitee的用户名加QQ群（640700429）获取**
 
 <img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg" style="zoom:25%;" />
 
