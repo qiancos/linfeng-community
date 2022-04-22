@@ -11,11 +11,15 @@
 
 ##### 2.2移动端效果截图
 
-<img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic01.png"  />
+<img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic11.png"/>
 
 
 
-![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic04.png)
+![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic12.png)
+
+
+
+![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic13.png)
 
 ##### 2.3后台管理端效果截图
 
