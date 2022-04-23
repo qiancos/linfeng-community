@@ -163,7 +163,7 @@
           <el-button type="text" size="small" @click="addOrUpdateHandle(scope.row.uid)">修改</el-button>
           <el-button v-if="scope.row.status == 0" type="text" size="small" @click="banHandle(scope.row.uid)">禁用</el-button>
           <el-button v-if="scope.row.status == 1" type="text" size="small" @click="openBanHandle(scope.row.uid)">解禁</el-button>
-          <el-button type="text" size="small" @click="deleteHandle(scope.row.uid)">删除</el-button>
+          <!-- <el-button type="text" size="small" @click="deleteHandle(scope.row.uid)">删除</el-button> -->
         </template>
       </el-table-column>
     </el-table>
