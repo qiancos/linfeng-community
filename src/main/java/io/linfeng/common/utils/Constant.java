@@ -42,6 +42,12 @@ public class Constant {
     public static final Integer HAS_READ = 1;
 
     /**
+     * 用户是否禁用
+     */
+    public static final Integer USER_NORMAL = 0;
+    public static final Integer USER_BANNER = 1;
+
+    /**
      * 圈子是否禁用
      */
     public static final Integer TOPIC_NORMAL = 0;

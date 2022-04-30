@@ -43,7 +43,7 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
     @Override
     public void ban(Integer id) {
         Integer status = this.lambdaQuery().eq(AppUserEntity::getUid, id).one().getStatus();
-        if(status==1){
+        if(status.equals(Constant.USER_BANNER)){
             throw new LinfengException("该用户已被禁用");
         }
         this.lambdaUpdate()
@@ -55,7 +55,7 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
     @Override
     public void openBan(Integer id) {
         Integer status = this.lambdaQuery().eq(AppUserEntity::getUid, id).one().getStatus();
-        if(status==0){
+        if(status.equals(Constant.USER_NORMAL)){
             throw new LinfengException("该用户已解除禁用");
         }
         this.lambdaUpdate()
