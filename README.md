@@ -43,6 +43,12 @@
 2.  数据库请使用MySQL5.7，其他版本可能会有问题
 3.  配置后台前端  先npm install 下载依赖后，再npm run dev即可
 
+项目地址：
+
+https://gitee.com/virus010101/linfeng-community
+
+https://github.com/virus010101/linfeng-community
+
 #### 4.必看说明
 
 1.**后台前端的代码**在**\src\main\resources\static\linfeng-community-vue**目录下！
