@@ -21,6 +21,8 @@
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic13.png)
 
+![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic14.png)
+
 ##### 2.3后台管理端效果截图
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic05.png)
@@ -69,7 +71,7 @@ https://github.com/virus010101/linfeng-community
 
 （注：当前演示版本为携带V1.3部分功能的测试版，V1.3功能预告（五月发布）：新增小程序端微信支付，付费贴，钱包体系，用户账单，积分体系，积分钱包兑换）
 
-<u>2022.5.7</u>
+<u>2022.5.9</u>
 
 **V1.3（测试版）发布**
 
@@ -90,6 +92,18 @@ https://github.com/virus010101/linfeng-community
 8.新增积分签到
 
 9.新增余额钱包体系&用户积分体系
+
+10.新增可配置消息清理定时任务
+
+11.新增用户端父子评论长按删除
+
+12.新增管理端模糊查询
+
+13.新增后台管理端用户余额充值
+
+14.修复私信排序问题和查询可能存在的问题
+
+15.修复quartz定时任务暂停和恢复的bug
 
 <u>2022.4.24</u>
 
