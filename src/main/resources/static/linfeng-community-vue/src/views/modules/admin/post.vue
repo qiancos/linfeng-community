@@ -5,21 +5,26 @@
       :model="dataForm"
       @keyup.enter.native="getDataList()"
     >
-      <!-- <el-form-item>
+      <el-form-item>
         <el-input
           v-model="dataForm.key"
-          placeholder="请输入帖子内容搜索"
+          placeholder="帖子内容或标题搜索"
           clearable
         ></el-input>
-      </el-form-item> -->
-      <el-form-item>
-        <!-- <el-button @click="getDataList()">查询</el-button> -->
-      <!-- <el-form-item>
-        <el-radio v-model="dataForm.status" label="0">正常</el-radio>
-        <el-radio v-model="dataForm.status" label="1">待审核</el-radio>
-        <el-radio v-model="dataForm.status" label="2">已下架</el-radio>
       </el-form-item>
-      <el-button @click="getDataList()">查询</el-button> -->
+      <el-form-item>
+      <!-- 选择框 -->
+      <el-select v-model="dataForm.status" clearable placeholder="请选择状态">
+        <el-option
+          v-for="item in options"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value">
+        </el-option>
+     </el-select>
+
+      <el-button @click="getDataList()">查询</el-button>
+      <el-button @click="refresh()">重置</el-button>
       
         <!-- <el-button
           v-if="isAuth('admin:post:delete')"
@@ -123,20 +128,6 @@
         label="文件"
       >
         <template slot-scope="scope">
-          <!-- <img
-            v-if="scope.row.type == 1 && scope.row.media[0]"
-            style="width: 80px; height: 50px"
-            :src="scope.row.media[0]"
-          /> -->
-          <!-- <video
-            v-if="scope.row.type == 2"
-            class="myVideo"
-            id="myVideo"
-            :src="scope.row.media[0]"
-            enable-danmu
-            danmu-btn
-            controls
-          ></video> -->
           <el-button v-if="scope.row.type == 2" type="text" @click="openVideo(scope.row.media[0])">点击预览</el-button>
           <el-button v-if="scope.row.type == 1 && scope.row.media[0]" type="text" @click="openPic(scope.row.media)">点击查看</el-button>
         </template>
@@ -162,13 +153,13 @@
         label="点赞数"
       >
       </el-table-column>
-      <!-- <el-table-column
+      <el-table-column
         prop="discussTitle"
         header-align="center"
         align="center"
         label="话题"
       >
-      </el-table-column> -->
+      </el-table-column>
       <el-table-column
         prop="postTop"
         header-align="center"
@@ -334,6 +325,17 @@ export default {
       dialogVisible2: false,
       videoUrl:"",
       media: [],
+       options: [{
+          value: 0,
+          label: '正常'
+        }, {
+          value: 1,
+          label: '待审核'
+        }, {
+          value: 2,
+          label: '已下架'
+        }],
+        // value: ''
     };
   },
   components: {
@@ -343,6 +345,13 @@ export default {
     this.getDataList();
   },
   methods: {
+    refresh(){
+        this.dataForm.key='';
+        this.dataForm.status='';
+        this.pageIndex=1;
+        this.pageSize=10;
+        this.getDataList();
+    },
     // 获取数据列表
     getDataList() {
       this.dataListLoading = true;
@@ -352,8 +361,8 @@ export default {
         params: this.$http.adornParams({
           page: this.pageIndex,
           limit: this.pageSize,
-          // key: this.dataForm.key,
-          // status:this.dataForm.status
+          key: this.dataForm.key,
+          status:this.dataForm.status
         }),
       }).then(({ data }) => {
         if (data && data.code === 0) {

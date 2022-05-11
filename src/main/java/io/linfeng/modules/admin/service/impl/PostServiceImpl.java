@@ -1,5 +1,6 @@
 package io.linfeng.modules.admin.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -53,30 +54,43 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
+        QueryWrapper<PostEntity> queryWrapper=new QueryWrapper<>();
+        //条件查询
+        String key = (String)params.get("key");
+        String status = (String)params.get("status");
+        if(!WechatUtil.isEmpty(key)){
+            params.put("page","1");//如果是查询分页重置为第一页
+            queryWrapper.like("content", key).or().like("title",key);
+        }
+        if(!WechatUtil.isEmpty(status)){
+            params.put("page","1");//如果是查询分页重置为第一页
+            queryWrapper.eq("status", Integer.parseInt(status));
+        }
+        queryWrapper.lambda().orderByDesc(PostEntity::getId);
         IPage<PostEntity> page = this.page(
                 new Query<PostEntity>().getPage(params),
-                new QueryWrapper<>()
+                queryWrapper
         );
         List<PostEntity> data = page.getRecords();
 
-        List<PostListResponse> responseList = new ArrayList<>();
-        data.forEach(l -> {
-            PostListResponse response = new PostListResponse();
-            BeanUtils.copyProperties(l, response);
-            if (response.getDiscussId() > 0) {
+        List<PostListResponse> responseList=new ArrayList<>();
+        data.forEach(l->{
+            PostListResponse response=new PostListResponse();
+            BeanUtils.copyProperties(l,response);
+            if(ObjectUtil.isNotNull(response.getDiscussId())&&response.getDiscussId()>0){
                 DiscussEntity discussEntity = discussService.getById(response.getDiscussId());
-                response.setDiscussTitle(discussEntity.getTitle());
+                if(ObjectUtil.isNotNull(discussEntity)){
+                    response.setDiscussTitle(discussEntity.getTitle());
+                }
             }
             response.setTopicName(topicService.getById(response.getTopicId()).getTopicName());
             response.setCollectionCount(postCollectionService.collectCount(response.getId()));
             response.setCommentCount(commentService.getCountByTopicId(response.getId()));
             response.setUserInfo(appUserService.getById(response.getUid()));
-            String jsonString = l.getMedia();
-            List<String> list = JsonUtils.JsonToList(jsonString);
-            response.setMedia(list);
+            response.setMedia(JsonUtils.JsonToList(l.getMedia()));
             responseList.add(response);
         });
-        PageUtils pageUtils = new PageUtils(page);
+        PageUtils pageUtils=new PageUtils(page);
         pageUtils.setList(responseList);
         return pageUtils;
     }
