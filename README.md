@@ -45,6 +45,10 @@
 2.  数据库请使用MySQL5.7，其他版本可能会有问题
 3.  配置后台前端  先npm install 下载依赖后，再npm run dev即可
 
+**林风社交论坛项目文档地址**：https://www.kancloud.cn/linfengkj/linfeng_community/2754703
+
+
+
 项目地址：
 
 https://gitee.com/virus010101/linfeng-community
@@ -69,11 +73,11 @@ https://github.com/virus010101/linfeng-community
 
 #### 5.版本更新记录
 
-（注：当前演示版本为携带V1.3部分功能的测试版，V1.3功能预告（五月发布）：新增小程序端微信支付，付费贴，钱包体系，用户账单，积分体系，积分钱包兑换）
 
-<u>2022.5.7-5.11</u>
 
-**V1.3（测试版）发布**
+<u>2022.5.14</u>
+
+**V1.3（正式版）发布**
 
 1.优化私聊功能及时性
 
@@ -108,6 +112,8 @@ https://github.com/virus010101/linfeng-community
 16.新增h5微信支付
 
 17.新增视频模块和充值模块显示配置
+
+18.新增积分兑换余额模块
 
 <u>2022.4.24</u>
 

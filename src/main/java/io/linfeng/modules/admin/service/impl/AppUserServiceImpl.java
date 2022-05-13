@@ -30,12 +30,17 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         QueryWrapper<AppUserEntity> queryWrapper=new QueryWrapper<>();
+        //模糊查询
+        String key = (String)params.get("key");
+        if(!WechatUtil.isEmpty(key)){
+            params.put("page","1");//如果是查询分页重置为第一页
+            queryWrapper.like("username", key).or().like("mobile",key);
+        }
         queryWrapper.lambda().orderByDesc(AppUserEntity::getUid);
         IPage<AppUserEntity> page = this.page(
                 new Query<AppUserEntity>().getPage(params),
                 queryWrapper
         );
-
         return new PageUtils(page);
     }
 
