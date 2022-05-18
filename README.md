@@ -61,15 +61,13 @@ https://github.com/virus010101/linfeng-community
 
 2.**后台管理系统和后台管理系统后端API已经全部开源**。
 
-**用户端代码未开源**。
-
-<img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/mine.jpg" style="zoom: 25%;" />
-
-
-
 3. SQL文件开源的，在QQ群，开源不易，**请左上角star后备注gitee的用户名加QQ群（640700429）获取**
 
 <img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg" style="zoom:25%;" />
+
+
+
+<img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/mine.jpg" style="zoom: 25%;" />
 
 #### 5.版本更新记录
 
