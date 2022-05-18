@@ -17,6 +17,7 @@ import io.linfeng.common.utils.Query;
 import io.linfeng.modules.admin.dao.CommentDao;
 import io.linfeng.modules.admin.entity.CommentEntity;
 import io.linfeng.modules.admin.service.CommentService;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service("commentService")
@@ -47,4 +48,20 @@ public class CommentServiceImpl extends ServiceImpl<CommentDao, CommentEntity> i
     }
 
 
+    /**
+     * 管理端批量删除评论
+     * @param list
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void deleteByAdmin(List<Long> list) {
+        list.forEach(id->{
+            this.removeById(id);
+            //子评论更改展示状态为屏蔽
+            this.lambdaUpdate()
+                    .set(CommentEntity::getStatus, 0)
+                    .eq(CommentEntity::getPid, id)
+                    .update();
+        });
+    }
 }

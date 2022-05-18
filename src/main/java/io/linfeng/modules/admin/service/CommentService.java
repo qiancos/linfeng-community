@@ -25,5 +25,6 @@ public interface CommentService extends IService<CommentEntity> {
 
     List<CommentEntity> getByPid(Long pid);
 
+    void deleteByAdmin(List<Long> longs);
 }
 
