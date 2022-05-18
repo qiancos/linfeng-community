@@ -61,7 +61,7 @@ https://github.com/virus010101/linfeng-community
 
 2.**后台管理系统和后台管理系统后端API已经全部开源**。
 
-**用户端代码未开源**，需要源码联系客服（收费分为mini版本和标准版）。
+**用户端代码未开源**。
 
 <img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/mine.jpg" style="zoom: 25%;" />
 
