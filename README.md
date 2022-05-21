@@ -1,11 +1,13 @@
 # linfeng-community
 
 #### 1.介绍
-社交论坛uniapp小程序/H5版本基于SpringBoot2+MybatisPlus+Shiro+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目 项目分为Uniapp用户端（兼容H5和微信小程序版本）和Vue后台管理端（包括完整的权限处理）， 基于以下技术栈开发：SpringBoot2、MybatisPlus、Shiro、jwt、Redis、Vue、Uniapp、MySQL5.7。
+社交论坛uniapp**小程序/H5版本**基于SpringBoot2+MybatisPlus+Shiro+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目 项目分为Uniapp用户端（兼容H5和微信小程序版本）和Vue后台管理端（包括完整的权限处理）， 基于以下技术栈开发：SpringBoot2、MybatisPlus、Shiro、jwt、Redis、Vue、Uniapp、MySQL5.7。
+
+功能：图文帖，短视频，圈子，私聊，微信支付（小程序/H5），付费贴，积分签到，钱包充值，积分余额兑换，话题标签等完整功能，直接看演示更直观↓↓↓↓↓↓
 
 #### 2.软件演示
 
-##### 2.1移动端H5演示版本（手机扫码浏览/输入手机号登录）
+##### 2.1移动端H5演示版本（手机扫码浏览/输入手机号登录）或者 https://www.linfeng.tech  小程序效果演示和h5一致（除了登录不一样）
 
 ![移动端H5二维码](https://gitee.com/virus010101/linfeng-community/raw/master/images/er.png)
 
@@ -57,15 +59,15 @@ https://github.com/virus010101/linfeng-community
 
 #### 4.必看说明
 
-1.**后台前端的代码**在**\src\main\resources\static\linfeng-community-vue**目录下！
+1.**后台前端的代码**在 **src\main\resources\static\linfeng-community-vue** 目录下！
 
 2.**后台管理系统和后台管理系统后端API已经全部开源**。
 
-3. SQL文件开源的，在QQ群，开源不易，**请左上角star后备注gitee的用户名加QQ群（640700429）获取**
+3.SQL文件开源的，在QQ群，开源不易，**请左上角star后备注gitee的用户名加QQ群（640700429）获取**
 
 <img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg" style="zoom:25%;" />
 
-
+其他事项咨询可以如下扫码添加技术客服qq：
 
 <img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/mine.jpg" style="zoom: 25%;" />
 
