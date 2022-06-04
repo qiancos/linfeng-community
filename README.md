@@ -73,7 +73,7 @@ https://github.com/virus010101/linfeng-community
 
 #### 5.版本更新记录
 
-
+当前版本V1.3.0       **V1.3.1即将发布**
 
 <u>2022.5.14</u>
 
