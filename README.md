@@ -25,6 +25,8 @@
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic14.png)
 
+![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic15.png)
+
 ##### 2.3后台管理端效果截图
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic05.png)
@@ -73,7 +75,31 @@ https://github.com/virus010101/linfeng-community
 
 #### 5.版本更新记录
 
-当前版本V1.3.0       **V1.3.1即将发布**
+**当前版本V1.3.1**      
+
+<u>2022.6.8</u>
+
+1.修复移动端分页功能存在的底部提示bug
+
+2.修复圈子管理员修改圈子背景图无效的bug
+
+3.修复圈子人数展示不统一的问题
+
+4.修复一键已读为空时的异常报错
+
+5.优化圈子查询代码
+
+6.优化帖子分页查询组装代码
+
+7.新增子评论回复时间展示
+
+8.新增帖子列表组件置顶图标展示属性
+
+9.新增发帖时选择话题
+
+10.发帖时间改为新格式
+
+11.新增帖子瀑布流展示风格组件
 
 <u>2022.5.14</u>
 
