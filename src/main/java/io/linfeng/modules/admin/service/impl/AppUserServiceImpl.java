@@ -1,11 +1,14 @@
 package io.linfeng.modules.admin.service.impl;
 
+import cn.hutool.core.util.RandomUtil;
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import io.linfeng.common.exception.LinfengException;
 import io.linfeng.common.response.HomeRateResponse;
 import io.linfeng.common.utils.*;
 import io.linfeng.modules.admin.entity.PostEntity;
 import io.linfeng.modules.admin.service.*;
+import io.linfeng.modules.app.form.SmsLoginForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.*;
@@ -14,6 +17,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.linfeng.modules.admin.dao.AppUserDao;
 import io.linfeng.modules.admin.entity.AppUserEntity;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 @Service
@@ -26,6 +31,8 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
     @Autowired
     private AppUserDao userDao;
 
+    @Autowired
+    private RedisUtils redisUtils;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -82,6 +89,40 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
         response.setYesterdayNewUserNum(this.getRegisterNumByDate(yesterday));
         response.setTotalUser(this.getTotalNum());
         return response;
+    }
+
+        @Override
+        public Integer smsLogin(SmsLoginForm form, HttpServletRequest request) {
+            AppUserEntity appUserEntity = this.lambdaQuery().eq(AppUserEntity::getMobile, form.getMobile()).one();
+            String codeKey = "code_" + form.getMobile();
+            String s = redisUtils.get(codeKey);
+            if(!s.equals(form.getCode())){
+                throw new LinfengException("验证码错误！");
+            }
+            if(appUserEntity!=null){
+                if(appUserEntity.getStatus()==1){
+                    throw new LinfengException("该账号已被禁用");
+                }
+                return appUserEntity.getUid();
+            }else {
+                List<String> list=new ArrayList<>();
+                list.add("萌新");
+                AppUserEntity appUser = new AppUserEntity();
+                appUser.setMobile(form.getMobile());
+                appUser.setAvatar(Constant.DEAULT_HEAD);
+                appUser.setGender(0);
+                appUser.setUsername("LF_"+RandomUtil.randomNumbers(6));
+                String tag = JSON.toJSONString(list);
+                appUser.setTagStr(tag);
+                appUser.setCreateTime(DateUtil.nowDateTime());
+                appUser.setUpdateTime(DateUtil.nowDateTime());
+                baseMapper.insert(appUser);
+                AppUserEntity appUsers = this.lambdaQuery().eq(AppUserEntity::getMobile, form.getMobile()).one();
+
+
+                return appUsers.getUid();
+            }
+
     }
 
     private Integer getTotalNum() {

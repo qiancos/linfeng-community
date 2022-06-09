@@ -34,5 +34,7 @@ public interface AppUserService extends IService<AppUserEntity> {
      * @return HomeRateResponse
      */
     HomeRateResponse indexDate();
+
+    Integer smsLogin(SmsLoginForm form, HttpServletRequest request);
 }
 
