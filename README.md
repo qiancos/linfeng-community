@@ -27,6 +27,8 @@
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic15.png)
 
+![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic16.png)
+
 ##### 2.3后台管理端效果截图
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic05.png)
@@ -42,6 +44,16 @@
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic10.png)
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic03.png)
+
+![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic21.png)
+
+![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic22.png)
+
+![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic23.png)
+
+![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic24.png)
+
+
 
 #### 3.安装教程 
 
