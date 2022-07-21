@@ -31,7 +31,17 @@
 
 ##### 2.3后台管理端效果截图
 
+后台管理系统演示站点：
+
+https://dev.linfeng.tech
+
+演示账号： test       
+
+密码：123456
+
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic05.png)
+
+![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic25.png)
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic06.png)
 
