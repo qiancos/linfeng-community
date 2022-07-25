@@ -11,6 +11,12 @@
 
 ![移动端H5二维码](https://gitee.com/virus010101/linfeng-community/raw/master/images/er.png)
 
+**后台管理系统**演示站点：
+
+https://dev.linfeng.tech
+
+演示账号： test       密码：123456
+
 ##### 2.2移动端效果截图
 
 <img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic11.png"/>
@@ -99,8 +105,10 @@ https://github.com/virus010101/linfeng-community
 
 ***当前版本V1.4***
 
+![](http://pic.linfeng.tech/test/20220724/fda879341553420ba2d6eb9d2997ed65.png)
+
 **V1.4发布**
-2022.7.24
+<u>2022.7.24</u>
 
 【新增】1.虚拟用户自动注册发帖 *【重磅】*  
 
