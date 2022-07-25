@@ -105,7 +105,7 @@ https://github.com/virus010101/linfeng-community
 
 ***当前版本V1.4***
 
-![](http://pic.linfeng.tech/test/20220724/fda879341553420ba2d6eb9d2997ed65.png)
+![](https://gitee.com/virus010101/linfeng-community/raw/master/images/version14.png)
 
 **V1.4发布**
 <u>2022.7.24</u>
