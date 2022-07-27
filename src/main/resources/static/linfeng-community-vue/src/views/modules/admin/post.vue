@@ -173,20 +173,7 @@
           </div>
         </template>
       </el-table-column>
-      <el-table-column
-        prop="status"
-        header-align="center"
-        align="center"
-        label="状态"
-      >
-        <template slot-scope="scope">
-          <div>
-            <el-tag v-if="scope.row.status == 0" type="success">上架</el-tag>
-             <el-tag v-else-if="scope.row.status ==1" type="warning">待审核</el-tag>
-            <el-tag v-else type="danger">下架</el-tag>
-          </div>
-        </template>
-      </el-table-column>
+      
       <el-table-column
         prop="address"
         header-align="center"

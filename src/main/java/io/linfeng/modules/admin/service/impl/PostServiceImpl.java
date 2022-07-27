@@ -91,7 +91,6 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
                     response.setDiscussTitle(discussEntity.getTitle());
                 }
             }
-            response.setTopicName(topicService.getById(response.getTopicId()).getTopicName());
             response.setCollectionCount(postCollectionService.collectCount(response.getId()));
             response.setCommentCount(commentService.getCountByTopicId(response.getId()));
             response.setUserInfo(appUserService.getById(response.getUid()));
