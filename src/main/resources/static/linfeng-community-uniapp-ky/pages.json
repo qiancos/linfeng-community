@@ -6,11 +6,46 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "主页",
+				"backgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/message/message",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "消息"
 			}
 		}
 	    ,{
-            "path" : "pages/message/message",
+            "path" : "pages/post/post",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
+        ,{
+            "path" : "pages/my/post",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
@@ -19,7 +54,43 @@
             
         }
         ,{
-            "path" : "pages/user/user",
+            "path" : "pages/my/user",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/post/add",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/edit",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/home",
+            "style": {
+            	"navigationBarTitleText": "个人主页",
+            	"navigationStyle": "custom",
+            	"navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/login/weixin",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
@@ -59,5 +130,4 @@
 			}
 		]
 	}
-	
 }
