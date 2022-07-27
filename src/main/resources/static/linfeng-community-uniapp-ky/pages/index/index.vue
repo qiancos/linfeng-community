@@ -80,7 +80,7 @@
 				this.page1 = 1;
 				this.followUserPost = [];
 				this.getFollowUserPost();
-				this.getMsgNum();
+				// this.getMsgNum();
 			}
 			if (this.current === 1) {
 				this.page2 = 1;

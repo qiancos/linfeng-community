@@ -64,4 +64,13 @@ public class CommentServiceImpl extends ServiceImpl<CommentDao, CommentEntity> i
                     .update();
         });
     }
+
+
+    @Override
+    public Integer getCountByPostId(Integer id) {
+        return baseMapper.selectCount(
+                new LambdaQueryWrapper<CommentEntity>()
+                        .eq(CommentEntity::getStatus, 1)
+                        .eq(CommentEntity::getPostId, id));
+    }
 }

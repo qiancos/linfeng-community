@@ -1,20 +1,19 @@
 package io.linfeng.modules.app.controller;
 
 import cn.hutool.core.util.ObjectUtil;
+import io.linfeng.common.response.PostDetailResponse;
 import io.linfeng.common.utils.AppPageUtils;
 import io.linfeng.common.utils.R;
 import io.linfeng.modules.admin.entity.AppUserEntity;
 import io.linfeng.modules.admin.service.PostService;
 import io.linfeng.modules.app.annotation.Login;
 import io.linfeng.modules.app.annotation.LoginUser;
+import io.linfeng.modules.app.form.AddCollectionForm;
 import io.linfeng.modules.app.service.PostCollectionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author linfeng
@@ -27,9 +26,9 @@ public class AppPostController {
 
     @Autowired
     private PostService postService;
-
     @Autowired
     private PostCollectionService postCollectionService;
+
 
 
     @GetMapping("/lastPost")
@@ -52,5 +51,59 @@ public class AppPostController {
         }
         return R.ok().put("result", pages);
     }
+
+
+
+    /**
+     * 帖子点赞收藏
+     */
+    @Login
+    @PostMapping("/addCollection")
+    @ApiOperation("帖子点赞收藏")
+    public R addCollection(@RequestBody AddCollectionForm request, @LoginUser AppUserEntity user){
+        postService.addCollection(request,user);
+
+        return R.ok();
+    }
+
+    /**
+     * 帖子取消点赞收藏
+     */
+    @Login
+    @PostMapping("/cancelCollection")
+    @ApiOperation("帖子取消点赞收藏")
+    public R cancelCollection(@RequestBody AddCollectionForm request, @LoginUser AppUserEntity user){
+        postCollectionService.cancelCollection(request,user);
+        return R.ok();
+    }
+
+    @Login
+    @GetMapping("/myPost")
+    @ApiOperation("我的帖子")
+    public R myPost(@RequestParam("page") Integer page, @LoginUser AppUserEntity user){
+
+        AppPageUtils pages =postService.myPost(page,user);
+        return R.ok().put("result", pages);
+    }
+
+
+    @Login
+    @GetMapping("/myCollectPost")
+    @ApiOperation("我点赞收藏的帖子")
+    public R myCollectPost(@RequestParam("page") Integer page, @LoginUser AppUserEntity user){
+
+        AppPageUtils pages =postService.myCollectPost(page,user);
+        return R.ok().put("result", pages);
+    }
+
+
+    @GetMapping("/detail")
+    @ApiOperation("获取帖子详情")
+    public R detail(@RequestParam Integer id){
+
+        PostDetailResponse response=postService.detail(id);
+        return R.ok().put("result", response);
+    }
+
 
 }

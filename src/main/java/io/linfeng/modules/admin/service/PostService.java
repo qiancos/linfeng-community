@@ -30,5 +30,13 @@ public interface PostService extends IService<PostEntity> {
     AppPageUtils lastPost(Integer page);
 
     AppPageUtils followUserPost(Integer page, AppUserEntity user);
+
+    void addCollection(AddCollectionForm request, AppUserEntity user);
+
+    AppPageUtils myPost(Integer page, AppUserEntity user);
+
+    AppPageUtils myCollectPost(Integer page,AppUserEntity user);
+
+    PostDetailResponse detail(Integer id);
 }
 

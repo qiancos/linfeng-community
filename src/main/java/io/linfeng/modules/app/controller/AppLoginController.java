@@ -1,17 +1,13 @@
 package io.linfeng.modules.app.controller;
 
 import io.linfeng.common.response.AppUserResponse;
+import io.linfeng.common.utils.AppPageUtils;
 import io.linfeng.common.utils.R;
-import io.linfeng.common.utils.RedisUtils;
-import io.linfeng.common.validator.ValidatorUtils;
 import io.linfeng.modules.admin.entity.AppUserEntity;
 import io.linfeng.modules.admin.service.AppUserService;
 import io.linfeng.modules.app.annotation.Login;
 import io.linfeng.modules.app.annotation.LoginUser;
-import io.linfeng.modules.app.form.AddFollowForm;
-import io.linfeng.modules.app.form.AppUserUpdateForm;
-import io.linfeng.modules.app.form.SendCodeForm;
-import io.linfeng.modules.app.form.SmsLoginForm;
+import io.linfeng.modules.app.form.*;
 import io.linfeng.modules.app.utils.JwtUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -38,7 +34,6 @@ public class AppLoginController {
 
     @Autowired
     private AppUserService appUserService;
-
 
 
     @PostMapping("/sendSmsCode")
@@ -107,6 +102,23 @@ public class AppLoginController {
     public R cancelFollow(@LoginUser AppUserEntity user, @RequestBody AddFollowForm request){
         appUserService.cancelFollow(request,user);
         return R.ok("取消关注用户成功");
+    }
+    @Login
+    @GetMapping("/userFans")
+    @ApiOperation("我的粉丝分页列表")
+    public R userFans(@RequestParam("page") Integer page,@LoginUser AppUserEntity user){
+
+        AppPageUtils pages =appUserService.userFans(page,user.getUid());
+        return R.ok().put("result", pages);
+    }
+
+    @Login
+    @GetMapping("/follow")
+    @ApiOperation("我的关注分页列表")
+    public R follow(@RequestParam("page") Integer page,@LoginUser AppUserEntity user){
+
+        AppPageUtils pages =appUserService.follow(page,user);
+        return R.ok().put("result", pages);
     }
 
 }

@@ -26,5 +26,11 @@ public interface FollowService extends IService<FollowEntity> {
     boolean isFollowOrNot(Integer uid, Integer id);
 
     List<Integer> getFollowUid(AppUserEntity user);
+
+    List<Integer> getFollowUids(AppUserEntity user);
+
+    Integer isFollow(Integer uid,Integer followUid);
+
+    List<Integer> getFansList(Integer uid);
 }
 

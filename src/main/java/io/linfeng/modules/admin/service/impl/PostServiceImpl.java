@@ -153,7 +153,72 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
         return this.mapPostList(pages,queryWrapper,user.getUid());
     }
 
+    @Override
+    public void addCollection(AddCollectionForm request, AppUserEntity user) {
+        Boolean collection = postCollectionService.isCollection(user.getUid(), request.getId());
+        if(collection){
+            throw new LinfengException("请勿重复点赞");
+        }
+        PostCollectionEntity pc=new PostCollectionEntity();
+        pc.setPostId(request.getId());
+        pc.setUid(user.getUid());
+        postCollectionService.save(pc);
+        //TODO 消息通知
 
+    }
+
+    @Override
+    public AppPageUtils myPost(Integer page, AppUserEntity user) {
+        QueryWrapper<PostEntity> queryWrapper=new QueryWrapper<>();
+        queryWrapper.lambda().eq(PostEntity::getUid,user.getUid());
+        queryWrapper.lambda().orderByDesc(PostEntity::getId);
+        Page<PostEntity> pages = new Page<>(page,10);
+        return this.mapPostList(pages, queryWrapper, user.getUid());
+    }
+
+    @Override
+    public AppPageUtils myCollectPost(Integer page,AppUserEntity user) {
+        List<Integer> postIdList=postCollectionService.getPostListByUid(user.getUid());
+        if(postIdList.size()==0){
+            return new AppPageUtils(null, 0, 10, 1);
+        }
+        QueryWrapper<PostEntity> queryWrapper=new QueryWrapper<>();
+        queryWrapper.lambda().in(PostEntity::getId,postIdList);
+        queryWrapper.lambda().orderByDesc(PostEntity::getId);
+        Page<PostEntity> pages = new Page<>(page,10);
+        return this.mapPostList(pages, queryWrapper, user.getUid());
+    }
+
+    @Override
+    public PostDetailResponse detail(Integer id) {
+        PostEntity post = this.getById(id);
+        if(ObjectUtil.isNull(post)){
+            throw new LinfengException("该帖子不存在或已删除");
+        }
+
+        AppUserEntity user = localUser.getUser();
+
+        post.setReadCount(post.getReadCount()+1);
+        baseMapper.updateById(post);
+        PostDetailResponse response=new PostDetailResponse();
+        BeanUtils.copyProperties(post,response);
+        AppUserEntity userInfo = appUserService.getById(post.getUid());
+
+        response.setUserInfo(userInfo);
+
+        if(ObjectUtil.isNull(user)){
+            response.setIsFollow(false);
+            response.setIsCollection(false);
+        }else{
+            response.setIsFollow(followService.isFollowOrNot(user.getUid(), post.getUid()));
+            response.setIsCollection(postCollectionService.isCollection(user.getUid(),post.getId()));
+        }
+        response.setCollectionCount(postCollectionService.collectCount(post.getId()));
+        response.setCommentCount(commentService.getCountByPostId(post.getId()));
+        response.setMedia(JsonUtils.JsonToList(post.getMedia()));//文件处理
+
+        return response;
+    }
     /**
      * 组装帖子分页
      * 在一个循环里 尽量减少数据库查询操作 这种方式并不太好 应该全部查询出来后再set值

@@ -4,9 +4,11 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.RandomUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.linfeng.common.exception.LinfengException;
 import io.linfeng.common.response.AppUserResponse;
 import io.linfeng.common.response.HomeRateResponse;
+import io.linfeng.common.response.TopicUserResponse;
 import io.linfeng.common.utils.*;
 import io.linfeng.modules.admin.entity.PostEntity;
 import io.linfeng.modules.admin.service.*;
@@ -195,7 +197,56 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
     public void cancelFollow(AddFollowForm request, AppUserEntity user) {
         followDao.cancelFollow(user.getUid(),request.getId());
     }
+    @Override
+    public AppPageUtils userFans(Integer currPage, Integer uid) {
+        List<Integer> uidList=followService.getFansList(uid);
+        if (uidList.isEmpty()) {
+            return new AppPageUtils(null, 0, 10, currPage);
+        }
+        Page<AppUserEntity> page = new Page<>(currPage, 10);
+        QueryWrapper<AppUserEntity> queryWrapper1 = new QueryWrapper<>();
+        queryWrapper1.lambda().in(AppUserEntity::getUid, uidList);
+        Page<AppUserEntity> page1 = this.page(page, queryWrapper1);
 
+        AppPageUtils pages = new AppPageUtils(page1);
+        List<?> data = pages.getData();
+        List<TopicUserResponse> responseList = new ArrayList<>();
+        data.forEach(l -> {
+            TopicUserResponse topicUserResponse = new TopicUserResponse();
+            BeanUtils.copyProperties(l, topicUserResponse);
+            Integer follow = followService.isFollow(uid, topicUserResponse.getUid());
+            topicUserResponse.setHasFollow(follow);
+            responseList.add(topicUserResponse);
+        });
+        pages.setData(responseList);
+        return pages;
+    }
+
+    @Override
+    public AppPageUtils follow(Integer currPage, AppUserEntity user) {
+        List<Integer> followUids = followService.getFollowUids(user);
+        if (followUids.isEmpty()) {
+            return new AppPageUtils(null, 0, 10, currPage);
+        }
+        Page<AppUserEntity> page = new Page<>(currPage, 10);
+        QueryWrapper<AppUserEntity> queryWrapper1 = new QueryWrapper<>();
+        queryWrapper1.lambda().in(AppUserEntity::getUid, followUids);
+        Page<AppUserEntity> page1 = this.page(page, queryWrapper1);
+
+
+        AppPageUtils pages = new AppPageUtils(page1);
+        List<?> data = pages.getData();
+        List<TopicUserResponse> responseList = new ArrayList<>();
+        data.forEach(l -> {
+            TopicUserResponse topicUserResponse = new TopicUserResponse();
+            BeanUtils.copyProperties(l, topicUserResponse);
+            Integer follow = followService.isFollow(user.getUid(), topicUserResponse.getUid());
+            topicUserResponse.setHasFollow(follow);
+            responseList.add(topicUserResponse);
+        });
+        pages.setData(responseList);
+        return pages;
+    }
     private Integer getTotalNum() {
         return this.lambdaQuery().select(AppUserEntity::getUid).count();
     }

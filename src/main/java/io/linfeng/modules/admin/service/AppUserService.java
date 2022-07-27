@@ -46,5 +46,9 @@ public interface AppUserService extends IService<AppUserEntity> {
     void addFollow(AddFollowForm request, AppUserEntity user);
 
     void cancelFollow(AddFollowForm request, AppUserEntity user);
+
+    AppPageUtils userFans(Integer page, Integer uid);
+
+    AppPageUtils follow(Integer page, AppUserEntity user);
 }
 
