@@ -91,9 +91,13 @@ https://github.com/virus010101/linfeng-community
 
 1.**后台前端的代码**在 **src\main\resources\static\linfeng-community-vue** 目录下！
 
-2.**后台管理系统和后台管理系统后端API已经全部开源**。
+2.**用户端的前端代码**在 **src\main\resources\static\linfeng-community-uniapp-ky** 目录下！
 
-3.SQL文件开源的，在QQ群，开源不易，**请左上角star后备注gitee的用户名加QQ群（640700429）获取**
+3.**代码已经全部开源，包括用户端也发布了开源版**。演示站点的是标准版，不是开源版。
+
+各版本说明请看:https://www.linfeng.tech/#/pages/post/detail?id=140
+
+4.SQL文件开源的，在QQ群，开源不易，**请左上角star后备注gitee的用户名加QQ群（640700429）获取**
 
 <img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg" style="zoom:25%;" />
 

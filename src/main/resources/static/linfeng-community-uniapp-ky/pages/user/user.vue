@@ -23,19 +23,19 @@
 			</block>
 			<u-grid :col="4" :border="false" style="margin: 20rpx 0;" @click="toNav">
 				<u-grid-item index="/pages/my/user?type=2">
-					<text>{{ userInfo.fans }}</text>
+					<text>{{ userInfo.fans || 0}}</text>
 					<view class="grid-text">粉丝</view>
 				</u-grid-item>
 				<u-grid-item index="/pages/my/user?type=1">
-					<text>{{ userInfo.follow }}</text>
+					<text>{{ userInfo.follow || 0 }}</text>
 					<view class="grid-text">关注</view>
 				</u-grid-item>
 				<u-grid-item index="/pages/my/post?type=2">
-					<text>{{ userInfo.postNum }}</text>
+					<text>{{ userInfo.postNum || 0 }}</text>
 					<view class="grid-text">帖子</view>
 				</u-grid-item>
 				<u-grid-item index="">
-					<text>{{ userInfo.integral }}</text>
+					<text>{{ userInfo.integral || 0 }}</text>
 					<view class="grid-text">积分</view>
 				</u-grid-item>
 			</u-grid>
@@ -111,7 +111,7 @@
 			} else {
 				this.hasLogin = false;
 			}
-			this.getMsgNum();
+			// this.getMsgNum();
 		},
 		onShareAppMessage(res) {
 			let imgURL = 'http://pic.linfeng.tech/logo.png';

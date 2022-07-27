@@ -126,7 +126,7 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
                 List<String> list=new ArrayList<>();
                 list.add("新人");
                 appUser.setTagStr(JSON.toJSONString(list));
-                baseMapper.insert(appUserEntity);
+                baseMapper.insert(appUser);
                 AppUserEntity user=this.lambdaQuery().eq(AppUserEntity::getMobile,form.getMobile()).one();
                 return user.getUid();
             }
