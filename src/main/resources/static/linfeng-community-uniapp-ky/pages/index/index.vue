@@ -62,7 +62,7 @@
 			this.getLastPost();
 		},
 		onShow() {
-			this.getMsgNum();
+			// this.getMsgNum();
 		},
 		onReachBottom() {
 			if (this.current === 0) {

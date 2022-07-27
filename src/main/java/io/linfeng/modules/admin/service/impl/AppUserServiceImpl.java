@@ -10,6 +10,9 @@ import io.linfeng.common.response.HomeRateResponse;
 import io.linfeng.common.utils.*;
 import io.linfeng.modules.admin.entity.PostEntity;
 import io.linfeng.modules.admin.service.*;
+import io.linfeng.modules.app.dao.FollowDao;
+import io.linfeng.modules.app.entity.FollowEntity;
+import io.linfeng.modules.app.form.AddFollowForm;
 import io.linfeng.modules.app.form.AppUserUpdateForm;
 import io.linfeng.modules.app.form.SendCodeForm;
 import io.linfeng.modules.app.form.SmsLoginForm;
@@ -42,6 +45,9 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
 
     @Autowired
     private FollowService followService;
+
+    @Autowired
+    private FollowDao followDao;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -166,6 +172,28 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
         }
         baseMapper.updateById(user);
         redisUtils.delete("userId:"+user.getUid());
+    }
+
+    @Override
+    public void addFollow(AddFollowForm request, AppUserEntity user) {
+        if(request.getId().equals(user.getUid())){
+            throw new LinfengException("不能关注自己哦");
+        }
+        boolean isFollow=followService.isFollowOrNot(user.getUid(),request.getId());
+        if(isFollow){
+            throw new LinfengException("不要重复关注哦");
+        }
+        FollowEntity followEntity=new FollowEntity();
+        followEntity.setUid(user.getUid());
+        followEntity.setFollowUid(request.getId());
+        followEntity.setCreateTime(DateUtil.nowDateTime());
+        followService.save(followEntity);
+        //TODO 消息通知
+    }
+
+    @Override
+    public void cancelFollow(AddFollowForm request, AppUserEntity user) {
+        followDao.cancelFollow(user.getUid(),request.getId());
     }
 
     private Integer getTotalNum() {

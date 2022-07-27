@@ -18,6 +18,8 @@ import io.linfeng.modules.app.entity.TopicAdminEntity;
 import io.linfeng.modules.app.entity.UserTopicEntity;
 import io.linfeng.modules.app.form.*;
 import io.linfeng.modules.app.service.*;
+import io.linfeng.modules.app.utils.LocalUser;
+import javafx.geometry.Pos;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -51,6 +54,11 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
     private DiscussService discussService;
     @Autowired
     private MessageService messageService;
+    @Autowired
+    private LocalUser localUser;
+    @Autowired
+    private FollowService followService;
+
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -95,42 +103,7 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
         return pageUtils;
     }
 
-    @Override
-    public Integer findTopicPostCount(Integer topicId) {
-        LambdaQueryWrapper<PostEntity> lambdaQueryWrapper = Wrappers.lambdaQuery();
-        lambdaQueryWrapper.eq(PostEntity::getTopicId, topicId);
-        return baseMapper.selectCount(lambdaQueryWrapper);
-    }
 
-    /**
-     * 选取圈子中热度最高的三条动态的首图作为展示
-     *
-     * @param id
-     * @return
-     */
-    @Override
-    public List<String> findThreeMedia(Integer id) {
-        QueryWrapper<PostEntity> queryWrapper = new QueryWrapper<>();
-        queryWrapper.lambda().eq(PostEntity::getTopicId, id);
-        queryWrapper.lambda().eq(PostEntity::getType, 1);
-        queryWrapper.lambda().orderByDesc(PostEntity::getReadCount);
-        queryWrapper.last("limit 10");
-        List<PostEntity> postEntityList = baseMapper.selectList(queryWrapper);
-        List<String> imageList = new ArrayList<>();
-        for (int i = 0; i < postEntityList.size(); i++) {
-            if (!postEntityList.get(i).getMedia().equals("")) {
-                List<String> jsonToList = JsonUtils.JsonToList(postEntityList.get(i).getMedia());
-                if (jsonToList.size() > 0) {
-                    if (imageList.size() > 2) {
-                        break;
-                    } else {
-                        imageList.add(jsonToList.get(0));
-                    }
-                }
-            }
-        }
-        return imageList;
-    }
 
 
     @Override
@@ -153,6 +126,64 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
 
         return this.lambdaQuery().eq(PostEntity::getUid,uid)
                 .count();
+    }
+
+    @Override
+    public AppPageUtils lastPost(Integer currPage) {
+        Page<PostEntity> page=new Page<>(currPage,10);
+        QueryWrapper<PostEntity> queryWrapper=new QueryWrapper<>();
+        queryWrapper.orderByDesc("post_top","id");
+        AppUserEntity user = localUser.getUser();
+        if(user==null){
+            return this.mapPostList(page,queryWrapper,0);
+        }
+        return this.mapPostList(page,queryWrapper,user.getUid());
+    }
+
+    @Override
+    public AppPageUtils followUserPost(Integer page, AppUserEntity user) {
+        List<Integer> list=followService.getFollowUid(user);
+        if(list.isEmpty()){
+            return null;
+        }
+        QueryWrapper<PostEntity> queryWrapper=new QueryWrapper<>();
+        queryWrapper.lambda().in(PostEntity::getUid,list);
+        queryWrapper.orderByDesc("post_top","id");
+        Page<PostEntity> pages=new Page<>(page,10);
+        return this.mapPostList(pages,queryWrapper,user.getUid());
+    }
+
+
+    /**
+     * 组装帖子分页
+     * 在一个循环里 尽量减少数据库查询操作 这种方式并不太好 应该全部查询出来后再set值
+     *
+     * @param page
+     * @param queryWrapper
+     * @param uid
+     * @return
+     */
+    public AppPageUtils  mapPostList(Page<PostEntity> page,QueryWrapper<PostEntity> queryWrapper,Integer uid){
+        Page<PostEntity> pages = baseMapper.selectPage(page,queryWrapper);
+        AppPageUtils appPage=new AppPageUtils(pages);
+        List<PostEntity> data = (List<PostEntity>) appPage.getData();
+        List<PostListResponse> responseList=new ArrayList<>();
+        data.forEach(l->{
+            PostListResponse response=new PostListResponse();
+            BeanUtils.copyProperties(l,response);
+            response.setCollectionCount(postCollectionService.collectCount(response.getId()));
+            response.setCommentCount(commentService.getCountByTopicId(response.getId()));
+            response.setUserInfo(appUserService.getById(response.getUid()));
+            if (uid==0){
+                response.setIsCollection(false);
+            }else{
+                response.setIsCollection(postCollectionService.isCollection(uid,response.getId()));
+            }
+            response.setMedia(JsonUtils.JsonToList(l.getMedia()));
+            responseList.add(response);
+        });
+        appPage.setData(responseList);
+        return appPage;
     }
 
 }

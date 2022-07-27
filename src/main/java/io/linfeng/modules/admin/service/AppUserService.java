@@ -42,5 +42,9 @@ public interface AppUserService extends IService<AppUserEntity> {
     AppUserResponse getUserInfo(AppUserEntity user);
 
     void updateAppUserInfo(AppUserUpdateForm appUserUpdateForm, AppUserEntity user);
+
+    void addFollow(AddFollowForm request, AppUserEntity user);
+
+    void cancelFollow(AddFollowForm request, AppUserEntity user);
 }
 

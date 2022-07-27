@@ -123,31 +123,11 @@
 		},
 		data() {
 			return {
-				showAction: false,
-				
-				choosePost: '',
-				chooseIndex: '',
+
 			};
 		},
 
 		methods: {
-			
-			copyPageUrl(id) {
-				let that = this;
-				uni.setClipboardData({
-					data: this.$c.shareH5Url+'pages/post/post?id=' + id,
-					success: function() {
-						uni.hideToast();
-						that.$q.toast('复制成功', 'success');
-						that.showShare = false;
-					}
-				});
-			},
-			onActive(postInfo, index) {
-				this.showAction = true;
-				this.choosePost = postInfo;
-				this.chooseIndex = index;
-			},
 			
 			cancelCollection(id, index) {
 				this.$H
@@ -172,16 +152,6 @@
 							this.list[index].isCollection = true;
 							this.list[index].collectionCount++;
 						}
-					});
-			},
-			
-			follow() {
-				this.$H
-					.post('user/addFollow', {
-						id: this.choosePost.uid
-					})
-					.then(res => {
-						this.$u.toast(res.msg);
 					});
 			},
 			previewImage(url, urls) {

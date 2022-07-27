@@ -8,6 +8,7 @@ import io.linfeng.modules.admin.entity.AppUserEntity;
 import io.linfeng.modules.admin.service.AppUserService;
 import io.linfeng.modules.app.annotation.Login;
 import io.linfeng.modules.app.annotation.LoginUser;
+import io.linfeng.modules.app.form.AddFollowForm;
 import io.linfeng.modules.app.form.AppUserUpdateForm;
 import io.linfeng.modules.app.form.SendCodeForm;
 import io.linfeng.modules.app.form.SmsLoginForm;
@@ -87,6 +88,25 @@ public class AppLoginController {
     public R userInfoEdit(@LoginUser AppUserEntity user, @RequestBody AppUserUpdateForm appUserUpdateForm){
         appUserService.updateAppUserInfo(appUserUpdateForm,user);
         return R.ok("修改成功");
+    }
+
+
+
+    @Login
+    @PostMapping("/addFollow")
+    @ApiOperation("关注用户")
+    public R addFollow(@LoginUser AppUserEntity user, @RequestBody AddFollowForm request){
+        appUserService.addFollow(request,user);
+        return R.ok("关注用户成功");
+    }
+
+
+    @Login
+    @PostMapping("/cancelFollow")
+    @ApiOperation("取消关注用户")
+    public R cancelFollow(@LoginUser AppUserEntity user, @RequestBody AddFollowForm request){
+        appUserService.cancelFollow(request,user);
+        return R.ok("取消关注用户成功");
     }
 
 }
