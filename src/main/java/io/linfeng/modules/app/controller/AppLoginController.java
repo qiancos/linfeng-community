@@ -1,17 +1,21 @@
 package io.linfeng.modules.app.controller;
 
+import io.linfeng.common.response.AppUserResponse;
 import io.linfeng.common.utils.R;
 import io.linfeng.common.utils.RedisUtils;
+import io.linfeng.common.validator.ValidatorUtils;
+import io.linfeng.modules.admin.entity.AppUserEntity;
 import io.linfeng.modules.admin.service.AppUserService;
+import io.linfeng.modules.app.annotation.Login;
+import io.linfeng.modules.app.annotation.LoginUser;
+import io.linfeng.modules.app.form.AppUserUpdateForm;
+import io.linfeng.modules.app.form.SendCodeForm;
 import io.linfeng.modules.app.form.SmsLoginForm;
 import io.linfeng.modules.app.utils.JwtUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -34,11 +38,14 @@ public class AppLoginController {
     @Autowired
     private AppUserService appUserService;
 
-    @Autowired
-    private RedisUtils redisUtils;
 
 
-
+    @PostMapping("/sendSmsCode")
+    @ApiOperation("发送验证码")
+    public R sendSmsCode(@RequestBody SendCodeForm param){
+        String code=appUserService.sendSmsCode(param);
+        return R.ok("测试阶段验证码:"+code);
+    }
 
 
 
@@ -61,6 +68,25 @@ public class AppLoginController {
         map.put("expire", jwtUtils.getExpire());
 
         return R.ok(map);
+    }
+
+
+    @Login
+    @GetMapping("/userInfo")
+    @ApiOperation("获取用户信息")
+    public R userInfo(@LoginUser AppUserEntity user){
+
+        AppUserResponse response=appUserService.getUserInfo(user);
+        return R.ok().put("result", response);
+    }
+
+
+    @Login
+    @PostMapping("/userInfoEdit")
+    @ApiOperation("用户修改个人信息")
+    public R userInfoEdit(@LoginUser AppUserEntity user, @RequestBody AppUserUpdateForm appUserUpdateForm){
+        appUserService.updateAppUserInfo(appUserUpdateForm,user);
+        return R.ok("修改成功");
     }
 
 }

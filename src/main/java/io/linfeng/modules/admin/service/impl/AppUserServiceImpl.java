@@ -1,14 +1,20 @@
 package io.linfeng.modules.admin.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.RandomUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import io.linfeng.common.exception.LinfengException;
+import io.linfeng.common.response.AppUserResponse;
 import io.linfeng.common.response.HomeRateResponse;
 import io.linfeng.common.utils.*;
 import io.linfeng.modules.admin.entity.PostEntity;
 import io.linfeng.modules.admin.service.*;
+import io.linfeng.modules.app.form.AppUserUpdateForm;
+import io.linfeng.modules.app.form.SendCodeForm;
 import io.linfeng.modules.app.form.SmsLoginForm;
+import io.linfeng.modules.app.service.FollowService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.*;
@@ -33,6 +39,9 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
 
     @Autowired
     private RedisUtils redisUtils;
+
+    @Autowired
+    private FollowService followService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -94,35 +103,69 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
         @Override
         public Integer smsLogin(SmsLoginForm form, HttpServletRequest request) {
             AppUserEntity appUserEntity = this.lambdaQuery().eq(AppUserEntity::getMobile, form.getMobile()).one();
-            String codeKey = "code_" + form.getMobile();
+            String codeKey="code_"+form.getMobile();
             String s = redisUtils.get(codeKey);
             if(!s.equals(form.getCode())){
-                throw new LinfengException("验证码错误！");
+                throw new LinfengException("验证码错误");
             }
-            if(appUserEntity!=null){
+            if(ObjectUtil.isNotNull(appUserEntity)){
+                //登录
                 if(appUserEntity.getStatus()==1){
-                    throw new LinfengException("该账号已被禁用");
+                    throw new LinfengException("该账户已被禁用");
                 }
                 return appUserEntity.getUid();
-            }else {
-                List<String> list=new ArrayList<>();
-                list.add("萌新");
-                AppUserEntity appUser = new AppUserEntity();
+            }else{
+                //注册
+                AppUserEntity appUser=new AppUserEntity();
                 appUser.setMobile(form.getMobile());
-                appUser.setAvatar(Constant.DEAULT_HEAD);
                 appUser.setGender(0);
-                appUser.setUsername("LF_"+RandomUtil.randomNumbers(6));
-                String tag = JSON.toJSONString(list);
-                appUser.setTagStr(tag);
+                appUser.setAvatar(Constant.DEAULT_HEAD);
+                appUser.setUsername("LF_"+RandomUtil.randomNumbers(8));
                 appUser.setCreateTime(DateUtil.nowDateTime());
                 appUser.setUpdateTime(DateUtil.nowDateTime());
-                baseMapper.insert(appUser);
-                AppUserEntity appUsers = this.lambdaQuery().eq(AppUserEntity::getMobile, form.getMobile()).one();
-
-
-                return appUsers.getUid();
+                List<String> list=new ArrayList<>();
+                list.add("新人");
+                appUser.setTagStr(JSON.toJSONString(list));
+                baseMapper.insert(appUserEntity);
+                AppUserEntity user=this.lambdaQuery().eq(AppUserEntity::getMobile,form.getMobile()).one();
+                return user.getUid();
             }
 
+
+        }
+
+    @Override
+    public String sendSmsCode(SendCodeForm param) {
+        String code = RandomUtil.randomNumbers(6);
+        String codeKey="code_"+param.getMobile();
+        String s = redisUtils.get(codeKey);
+        if(ObjectUtil.isNotNull(s)){
+            return s;
+        }
+        redisUtils.set(codeKey,code,60*5);
+        return code;
+    }
+
+    @Override
+    public AppUserResponse getUserInfo(AppUserEntity user) {
+        AppUserResponse response=new AppUserResponse();
+        BeanUtils.copyProperties(user,response);
+        Integer follow=followService.getFollowCount(user.getUid());
+        Integer fans=followService.getFans(user.getUid());
+        Integer postNum=postService.getPostNumByUid(user.getUid());
+        response.setFans(fans);
+        response.setPostNum(postNum);
+        response.setFollow(follow);
+        return response;
+    }
+
+    @Override
+    public void updateAppUserInfo(AppUserUpdateForm appUserUpdateForm, AppUserEntity user) {
+        if(!WechatUtil.isEmpty(appUserUpdateForm.getAvatar())){
+            user.setAvatar(appUserUpdateForm.getAvatar());
+        }
+        baseMapper.updateById(user);
+        redisUtils.delete("userId:"+user.getUid());
     }
 
     private Integer getTotalNum() {

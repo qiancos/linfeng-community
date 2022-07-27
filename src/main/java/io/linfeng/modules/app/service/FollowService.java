@@ -19,5 +19,8 @@ public interface FollowService extends IService<FollowEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
 
+    Integer getFollowCount(Integer uid);
+
+    Integer getFans(Integer uid);
 }
 

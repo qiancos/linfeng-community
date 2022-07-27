@@ -148,4 +148,11 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
         }
     }
 
+    @Override
+    public Integer getPostNumByUid(Integer uid) {
+
+        return this.lambdaQuery().eq(PostEntity::getUid,uid)
+                .count();
+    }
+
 }

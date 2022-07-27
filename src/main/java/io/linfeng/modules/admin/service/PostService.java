@@ -28,5 +28,7 @@ public interface PostService extends IService<PostEntity> {
     List<String> findThreeMedia(Integer id);
 
     void deleteByAdmin(List<Integer> integers);
+
+    Integer getPostNumByUid(Integer uid);
 }
 

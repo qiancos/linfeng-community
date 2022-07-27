@@ -25,4 +25,15 @@ public class FollowServiceImpl extends ServiceImpl<FollowDao, FollowEntity> impl
         return new PageUtils(page);
     }
 
+    @Override
+    public Integer getFollowCount(Integer uid) {
+        return this.lambdaQuery().eq(FollowEntity::getUid, uid).count();
+    }
+
+    @Override
+    public Integer getFans(Integer uid) {
+
+        return this.lambdaQuery().eq(FollowEntity::getFollowUid,uid).count();
+    }
+
 }

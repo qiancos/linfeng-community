@@ -36,5 +36,11 @@ public interface AppUserService extends IService<AppUserEntity> {
     HomeRateResponse indexDate();
 
     Integer smsLogin(SmsLoginForm form, HttpServletRequest request);
+
+    String sendSmsCode(SendCodeForm param);
+
+    AppUserResponse getUserInfo(AppUserEntity user);
+
+    void updateAppUserInfo(AppUserUpdateForm appUserUpdateForm, AppUserEntity user);
 }
 
