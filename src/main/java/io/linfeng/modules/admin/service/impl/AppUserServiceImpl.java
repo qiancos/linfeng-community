@@ -6,9 +6,7 @@ import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.linfeng.common.exception.LinfengException;
-import io.linfeng.common.response.AppUserResponse;
-import io.linfeng.common.response.HomeRateResponse;
-import io.linfeng.common.response.TopicUserResponse;
+import io.linfeng.common.response.*;
 import io.linfeng.common.utils.*;
 import io.linfeng.modules.admin.entity.PostEntity;
 import io.linfeng.modules.admin.service.*;
@@ -247,6 +245,16 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
         pages.setData(responseList);
         return pages;
     }
+
+    @Override
+    public AppUserInfoResponse findUserInfoById(Integer uid, AppUserEntity user) {
+        AppUserEntity userEntity = this.getById(uid);
+        AppUserInfoResponse response=new AppUserInfoResponse();
+        BeanUtils.copyProperties(userEntity,response);
+        return response;
+    }
+
+
     private Integer getTotalNum() {
         return this.lambdaQuery().select(AppUserEntity::getUid).count();
     }

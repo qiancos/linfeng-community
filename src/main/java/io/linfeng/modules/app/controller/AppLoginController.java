@@ -1,5 +1,6 @@
 package io.linfeng.modules.app.controller;
 
+import io.linfeng.common.response.AppUserInfoResponse;
 import io.linfeng.common.response.AppUserResponse;
 import io.linfeng.common.utils.AppPageUtils;
 import io.linfeng.common.utils.R;
@@ -121,4 +122,13 @@ public class AppLoginController {
         return R.ok().put("result", pages);
     }
 
+
+    @Login
+    @PostMapping("/userInfoById")
+    @ApiOperation("用户个人主页信息")
+    public R userInfoById(@RequestBody AppUserInfoForm request, @LoginUser AppUserEntity user){
+        AppUserInfoResponse response=appUserService.findUserInfoById(request.getUid(),user);
+
+        return R.ok().put("result",response);
+    }
 }

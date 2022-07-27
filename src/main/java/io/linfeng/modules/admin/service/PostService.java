@@ -38,5 +38,11 @@ public interface PostService extends IService<PostEntity> {
     AppPageUtils myCollectPost(Integer page,AppUserEntity user);
 
     PostDetailResponse detail(Integer id);
+
+    void addComment(AddCommentForm request, AppUserEntity user);
+
+    Integer addPost(AddPostForm request, AppUserEntity user);
+
+    AppPageUtils queryPageList(PostListForm request, AppUserEntity user);
 }
 

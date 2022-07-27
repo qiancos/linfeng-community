@@ -4,11 +4,15 @@ import cn.hutool.core.util.ObjectUtil;
 import io.linfeng.common.response.PostDetailResponse;
 import io.linfeng.common.utils.AppPageUtils;
 import io.linfeng.common.utils.R;
+import io.linfeng.common.validator.ValidatorUtils;
 import io.linfeng.modules.admin.entity.AppUserEntity;
 import io.linfeng.modules.admin.service.PostService;
 import io.linfeng.modules.app.annotation.Login;
 import io.linfeng.modules.app.annotation.LoginUser;
 import io.linfeng.modules.app.form.AddCollectionForm;
+import io.linfeng.modules.app.form.AddCommentForm;
+import io.linfeng.modules.app.form.AddPostForm;
+import io.linfeng.modules.app.form.PostListForm;
 import io.linfeng.modules.app.service.PostCollectionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -106,4 +110,35 @@ public class AppPostController {
     }
 
 
+    @Login
+    @PostMapping("/addComment")
+    @ApiOperation("添加评论")
+    public R addComment(@RequestBody AddCommentForm request, @LoginUser AppUserEntity user){
+        ValidatorUtils.validateEntity(request);
+        postService.addComment(request,user);
+
+        return R.ok();
+    }
+
+    @Login
+    @PostMapping("/addPost")
+    @ApiOperation("发帖子")
+    public R addPost(@RequestBody AddPostForm request, @LoginUser AppUserEntity user){
+        ValidatorUtils.validateEntity(request);
+        Integer id=postService.addPost(request,user);
+        if(id==0){
+            return R.error();
+        }
+        return R.ok().put("result",id);
+    }
+
+    @Login
+    @PostMapping("/list")
+    @ApiOperation("帖子列表分页")
+    public R list(@RequestBody PostListForm request, @LoginUser AppUserEntity user){
+
+        AppPageUtils page = postService.queryPageList(request,user);
+
+        return R.ok().put("result", page);
+    }
 }

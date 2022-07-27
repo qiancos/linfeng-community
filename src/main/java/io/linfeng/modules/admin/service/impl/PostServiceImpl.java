@@ -219,6 +219,66 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
 
         return response;
     }
+
+    @Override
+    public void addComment(AddCommentForm request, AppUserEntity user) {
+        if(user.getStatus()!=0){
+            throw new LinfengException("您的账号已被禁用！");
+        }
+
+        CommentEntity commentEntity=new CommentEntity();
+        BeanUtils.copyProperties(request,commentEntity);
+        commentEntity.setCreateTime(DateUtil.nowDateTime());
+        commentEntity.setUid(user.getUid().longValue());
+
+        commentService.save(commentEntity);
+
+    }
+
+    @Override
+    public Integer addPost(AddPostForm request, AppUserEntity user) {
+        if(user.getStatus()!=0){
+            throw new LinfengException("您的账号已被禁用");
+        }
+        PostEntity post=new PostEntity();
+        BeanUtils.copyProperties(request,post);
+        post.setMedia(JSON.toJSONString(request.getMedia()));
+        post.setUid(user.getUid());
+        post.setCreateTime(DateUtil.nowDateTime());
+        if(this.save(post)){
+            return post.getId();
+        }
+        return 0;
+    }
+
+    @Override
+    public AppPageUtils queryPageList(PostListForm request, AppUserEntity user) {
+        AppPageUtils appPage;
+        Page<PostEntity> page = new Page<>(request.getPage(), 10);
+        QueryWrapper<PostEntity> queryWrapper = new QueryWrapper<>();
+
+            if (ObjectUtil.isNotNull(request.getTopicId())) {
+                queryWrapper.lambda().eq(PostEntity::getTopicId, request.getTopicId());
+            }
+            if (ObjectUtil.isNotNull(request.getOrder())) {
+                if (request.getOrder().equals(Constant.ORDER_DESC_READCOUNT)) {
+                    queryWrapper.lambda().orderByDesc(PostEntity::getReadCount);
+                } else if (request.getOrder().equals(Constant.ORDER_DESC_ID)) {
+                    queryWrapper.lambda().orderByDesc(PostEntity::getId);
+                }
+            } else {
+                queryWrapper.orderByDesc("post_top","id");
+            }
+
+            if (ObjectUtil.isNotNull(request.getUid())) {
+                queryWrapper.lambda().eq(PostEntity::getUid, request.getUid());
+                appPage = this.mapPostList(page, queryWrapper, request.getUid());
+            } else {
+                appPage = this.mapPostList(page, queryWrapper, user.getUid());
+            }
+        return appPage;
+    }
+
     /**
      * 组装帖子分页
      * 在一个循环里 尽量减少数据库查询操作 这种方式并不太好 应该全部查询出来后再set值
