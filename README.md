@@ -5,6 +5,12 @@
 
 功能：图文帖，短视频，圈子，私聊，微信支付（小程序/H5），付费贴，积分签到，钱包充值，积分余额兑换，话题标签等完整功能，直接看演示更直观↓↓↓↓↓↓
 
+<u>后台前端的代码在 src\main\resources\static\linfeng-community-vue目录下！</u>
+
+<u>用户端的前端代码在 src\main\resources\static\linfeng-community-uniapp-ky 目录下！</u>
+
+<u>代码三端已经全部开源，包括用户端也发布了开源版</u>
+
 #### 2.软件演示
 
 ##### 2.1移动端H5演示版本（手机扫码浏览/输入手机号登录）或者 https://www.linfeng.tech  小程序效果演示和h5一致（除了登录不一样）
@@ -74,8 +80,10 @@ https://dev.linfeng.tech
 #### 3.安装教程 
 
 1.  配置数据库和redis。先启动redis，再启动后端api服务
-2.  数据库请使用MySQL5.7，其他版本可能会有问题
+2.  数据库请使用MySQL5.7，其他版本可能会有问题。sql文件请点个star后再加群获取
 3.  配置后台前端  先npm install 下载依赖后，再npm run dev即可
+4.  用户端uniapp代码  先npm install 安装依赖后，再启动项目
+5.  具体配置可以参考标准版的文档
 
 **林风社交论坛项目文档地址**：https://www.kancloud.cn/linfengkj/linfeng_community/2754703
 
@@ -95,7 +103,7 @@ https://github.com/virus010101/linfeng-community
 
 3.**代码已经全部开源，包括用户端也发布了开源版**。演示站点的是标准版，不是开源版。
 
-各版本说明请看:https://www.linfeng.tech/#/pages/post/detail?id=140
+各版本说明请看:https://www.kancloud.cn/linfengkj/linfeng_community/2754703
 
 4.SQL文件开源的，在QQ群，开源不易，**请左上角star后备注gitee的用户名加QQ群（640700429）获取**
 
