@@ -113,11 +113,42 @@ https://github.com/virus010101/linfeng-community
 
 <img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/mine.jpg" style="zoom: 25%;" />
 
-#### 5.版本更新记录
+#### 5.标准版更新记录
 
-***当前版本V1.4***
+***当前版本V1.4.1***
+
+![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic27.png)
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic26.png)
+
+**V1.4.1发布**
+<u>2022.8.16</u>
+
+【新增】1.新增积分抽奖大转盘 [重磅]
+
+【新增】2.新增圈子内帖子置顶功能 与平台置顶区分 [重磅]
+
+【新增】3.新增客服页面 [重磅]
+
+【新增】4.新增邮箱验证码登录 可配置开关 [重磅]
+
+【新增】5.H5端新增注册页面 区分登录和注册  [重磅]
+
+【优化】6.圈子管理员h5端删帖优化
+
+【优化】7.h5端设置管理员页面样式兼容和用户列表图标
+
+【优化】8.帖子详情查询优化
+
+【优化】9.投票贴空选项优化
+
+【优化】10.fastjson升级
+
+【优化】11.后端swagger文档全注释
+
+【优化】12.用户缓存信息
+
+【优化】13.手机验证码登录
 
 **V1.4发布**
 <u>2022.7.24</u>
