@@ -125,7 +125,7 @@ http://pic.linfeng.tech/test/20220727/e472fbef0a8f412b912bea6fa5317acf.png
 
 <u>2022.8.16</u>
 
-**V1.4.1发布**
+###### **V1.4.1发布**
 
 【新增】1.新增积分抽奖大转盘 [重磅]
 
@@ -155,7 +155,7 @@ http://pic.linfeng.tech/test/20220727/e472fbef0a8f412b912bea6fa5317acf.png
 
 <u>2022.7.24</u>
 
-**V1.4发布**
+###### **V1.4.0发布**
 
 【新增】1.虚拟用户自动注册发帖 *【重磅】*  
 
@@ -181,7 +181,7 @@ http://pic.linfeng.tech/test/20220727/e472fbef0a8f412b912bea6fa5317acf.png
 
 <u>2022.7.1</u>
 
-**V1.3.2发布**
+###### **V1.3.2发布**
 
 1.新增投票贴
 
@@ -195,7 +195,7 @@ http://pic.linfeng.tech/test/20220727/e472fbef0a8f412b912bea6fa5317acf.png
 
 <u>2022.6.8</u>
 
-**V1.3.1发布**
+###### **V1.3.1发布**
 
 1.修复移动端分页功能存在的底部提示bug
 
@@ -221,7 +221,7 @@ http://pic.linfeng.tech/test/20220727/e472fbef0a8f412b912bea6fa5317acf.png
 
 <u>2022.5.14</u>
 
-**V1.3（正式版）发布**
+###### **V1.3.0发布**
 
 1.优化私聊功能及时性
 
@@ -261,7 +261,7 @@ http://pic.linfeng.tech/test/20220727/e472fbef0a8f412b912bea6fa5317acf.png
 
 <u>2022.4.24</u>
 
-**V1.2.2发布**
+###### **V1.2.2发布**
 
 1.修复H5端回复评论bug； 
 
@@ -277,7 +277,7 @@ http://pic.linfeng.tech/test/20220727/e472fbef0a8f412b912bea6fa5317acf.png
 
 <u>2022.04.17</u>
 
-**V1.2.1发布**
+###### **V1.2.1发布**
 
 1.新增防止重复提交注解
 
@@ -295,7 +295,7 @@ http://pic.linfeng.tech/test/20220727/e472fbef0a8f412b912bea6fa5317acf.png
 
 <u>2022.04.04</u>
 
-**V1.2发布**
+###### **V1.2.0发布**
 
  1.优化私聊模块
 
@@ -311,7 +311,7 @@ http://pic.linfeng.tech/test/20220727/e472fbef0a8f412b912bea6fa5317acf.png
 
 <u>2022.03.05</u>
 
-**V1.1发布**
+###### **V1.1发布**
 
 移动端适配H5
 
@@ -323,5 +323,5 @@ http://pic.linfeng.tech/test/20220727/e472fbef0a8f412b912bea6fa5317acf.png
 
 <u>2022.01.29</u>
 
-**V1.0发布**
+###### **V1.0发布**
 
