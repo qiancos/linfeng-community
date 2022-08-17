@@ -103,7 +103,11 @@ https://github.com/virus010101/linfeng-community
 
 3.**代码已经全部开源，包括用户端也发布了开源版**。演示站点的是标准版，不是开源版。
 
-各版本说明请看:https://www.kancloud.cn/linfengkj/linfeng_community/2754703
+**标准版和开源版的区别**：
+
+http://pic.linfeng.tech/test/20220816/22d8a6fa4ae845e1b58914a96acec6b7.png
+
+http://pic.linfeng.tech/test/20220727/e472fbef0a8f412b912bea6fa5317acf.png
 
 4.SQL文件开源的，在QQ群，开源不易，**请左上角star后备注gitee的用户名加QQ群（640700429）获取**
 
@@ -121,8 +125,9 @@ https://github.com/virus010101/linfeng-community
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic26.png)
 
-**V1.4.1发布**
 <u>2022.8.16</u>
+
+**V1.4.1发布**
 
 【新增】1.新增积分抽奖大转盘 [重磅]
 
@@ -150,8 +155,9 @@ https://github.com/virus010101/linfeng-community
 
 【优化】13.手机验证码登录
 
-**V1.4发布**
 <u>2022.7.24</u>
+
+V1.4发布**
 
 【新增】1.虚拟用户自动注册发帖 *【重磅】*  
 
