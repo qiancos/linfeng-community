@@ -15,20 +15,20 @@ package io.linfeng.modules.admin.service.impl;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.RandomUtil;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.linfeng.common.exception.LinfengException;
 import io.linfeng.common.response.*;
 import io.linfeng.common.utils.*;
 import io.linfeng.modules.admin.entity.PostEntity;
+import io.linfeng.modules.admin.entity.SystemEntity;
 import io.linfeng.modules.admin.service.*;
 import io.linfeng.modules.app.dao.FollowDao;
 import io.linfeng.modules.app.entity.FollowEntity;
-import io.linfeng.modules.app.form.AddFollowForm;
-import io.linfeng.modules.app.form.AppUserUpdateForm;
-import io.linfeng.modules.app.form.SendCodeForm;
-import io.linfeng.modules.app.form.SmsLoginForm;
+import io.linfeng.modules.app.form.*;
 import io.linfeng.modules.app.service.FollowService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,6 +43,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 @Service
+@Slf4j
 public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> implements AppUserService {
 
 
@@ -60,6 +61,10 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
 
     @Autowired
     private FollowDao followDao;
+
+    @Autowired
+    private SystemService systemService;
+
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -264,6 +269,54 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
         AppUserInfoResponse response=new AppUserInfoResponse();
         BeanUtils.copyProperties(userEntity,response);
         return response;
+    }
+
+    @Override
+    public Integer miniWxLogin(WxLoginForm form) {
+
+        SystemEntity system = systemService.lambdaQuery().eq(SystemEntity::getConfig, "miniapp").one();
+
+        //小程序唯一标识   (在微信小程序管理后台获取)
+        String appId = system.getValue();
+        //小程序的 app secret (在微信小程序管理后台获取)
+        String secret = system.getExtend();
+        //授权（必填）
+        String grant_type = "authorization_code";
+        //https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code
+        //1、向微信服务器 使用登录凭证 code 获取 session_key 和 openid
+        //请求参数
+        String params = "appid=" + appId + "&secret=" + secret + "&js_code=" + form.getCode() + "&grant_type=" + grant_type;
+        //发送请求
+        String sr = HttpRequest.sendGet("https://api.weixin.qq.com/sns/jscode2session", params);
+        //解析相应内容（转换成json对象）
+        JSONObject json =JSON.parseObject(sr);
+        //用户的唯一标识（openId）
+        String openId = (String) json.get("openid");
+        //根据openId获取数据库信息 判断用户是否登录
+        AppUserEntity user = this.lambdaQuery().eq(AppUserEntity::getOpenid, openId).one();
+        if(ObjectUtil.isNotNull(user)){
+            //已登录用户
+            if(user.getStatus()==1){
+                throw new LinfengException("该账户已被禁用");
+            }
+            return user.getUid();
+        }else{
+            //新注册用户
+            //注册
+            AppUserEntity appUser=new AppUserEntity();
+            appUser.setGender(0);
+            appUser.setAvatar(form.getAvatar());
+            appUser.setUsername(form.getUsername());
+            appUser.setCreateTime(DateUtil.nowDateTime());
+            appUser.setUpdateTime(DateUtil.nowDateTime());
+            appUser.setOpenid(openId);
+            List<String> list=new ArrayList<>();
+            list.add("新人");
+            appUser.setTagStr(JSON.toJSONString(list));
+            baseMapper.insert(appUser);
+            AppUserEntity users=this.lambdaQuery().eq(AppUserEntity::getOpenid,openId).one();
+            return users.getUid();
+        }
     }
 
 

@@ -15,6 +15,7 @@ import io.linfeng.common.response.AppUserInfoResponse;
 import io.linfeng.common.response.AppUserResponse;
 import io.linfeng.common.utils.AppPageUtils;
 import io.linfeng.common.utils.R;
+import io.linfeng.common.validator.ValidatorUtils;
 import io.linfeng.modules.admin.entity.AppUserEntity;
 import io.linfeng.modules.admin.service.AppUserService;
 import io.linfeng.modules.app.annotation.Login;
@@ -77,6 +78,28 @@ public class AppLoginController {
 
         return R.ok(map);
     }
+
+    /**
+     * 微信小程序登录
+     */
+    @PostMapping("/miniWxlogin")
+    @ApiOperation("手机验证码登录")
+    public R miniWxLogin(@RequestBody WxLoginForm form){
+
+        //用户登录
+        Integer userId = appUserService.miniWxLogin(form);
+
+        //生成token
+        String token = jwtUtils.generateToken(userId);
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("token", token);
+        map.put("expire", jwtUtils.getExpire());
+
+        return R.ok(map);
+    }
+
+
 
 
     @Login
