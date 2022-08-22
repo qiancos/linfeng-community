@@ -1,7 +1,7 @@
 <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">linfeng-community 开源版</h1>
 <h4 align="center">基于SpringBoot2+MybatisPlus+Shiro+Quartz+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目</h4>
 
-[H5端演示](https://www.linfeng.tech) | [后台演示](https://www.django-vue-admin.com) | [群聊](https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg) | [文档](https://www.kancloud.cn/linfengkj/linfeng_community/2754703) | [版本区别](http://pic.linfeng.tech/test/20220816/22d8a6fa4ae845e1b58914a96acec6b7.png) | [Github](https://github.com/virus010101/linfeng-community) 
+[H5端演示](https://www.linfeng.tech) | [后台演示](https://dev.linfeng.tech) | [群聊](https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg) | [文档](https://www.kancloud.cn/linfengkj/linfeng_community/2754703) | [版本区别](http://pic.linfeng.tech/test/20220816/22d8a6fa4ae845e1b58914a96acec6b7.png) | [Github](https://github.com/virus010101/linfeng-community) 
 
 #### 1.介绍
 
