@@ -5,9 +5,9 @@
 
 #### 1.介绍
 
-林风社交论坛uniapp**小程序/H5版本**基于SpringBoot2+MybatisPlus+Shiro+Quartz+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目。 项目分为Uniapp用户端（兼容H5和微信小程序版本）和Vue后台管理端（包括完整的权限处理）， 基于以下技术栈开发：SpringBoot2、MybatisPlus、Shiro、Quartz、jwt、Redis、Vue、Uniapp、MySQL5.7。
+林风社交论坛uniapp**小程序/H5/APP版本**基于SpringBoot2+MybatisPlus+Shiro+Quartz+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目。 项目分为Uniapp用户端（**兼容H5、微信小程序、APP端**）和Vue后台管理端（包括完整的权限处理）， 基于以下技术栈开发：SpringBoot、MybatisPlus、Shiro、Quartz、jwt、Redis、Vue、Uniapp、MySQL5.7。
 
-功能：图文帖，短视频，圈子，私聊，微信支付（小程序/H5），付费贴，积分签到，钱包充值，积分余额兑换，话题标签,抽奖大转盘，手机号邮箱登录，人机发帖等完整功能，直接看演示更直观↓↓↓↓↓↓
+功能：图文帖，短视频，圈子，私聊，微信支付（小程序/H5/app），付费贴，积分签到，钱包充值，积分余额兑换，话题标签,抽奖大转盘，手机号邮箱登录，人机发帖等完整功能，直接看演示更直观↓↓↓↓↓↓
 
 ***后台前端的代码在 src\main\resources\static\linfeng-community-vue目录下！***
 
@@ -20,6 +20,12 @@
 ##### 2.1移动端H5演示版本（演示站为标准版，手机扫码浏览/输入手机号登录）或者 https://www.linfeng.tech  小程序效果演示和h5一致（除了登录不一样）
 
 ![移动端H5二维码](https://gitee.com/virus010101/linfeng-community/raw/master/images/er.png)
+
+**APP安卓端：**
+
+手机浏览器扫码下载体验版（下载密码：1111）
+
+![移动端APP二维码](https://gitee.com/virus010101/linfeng-community/raw/master/images/apk.png)
 
 **后台管理系统**演示站点：
 
