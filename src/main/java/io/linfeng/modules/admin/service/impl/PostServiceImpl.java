@@ -13,25 +13,18 @@
 package io.linfeng.modules.admin.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.linfeng.common.exception.LinfengException;
 import io.linfeng.common.response.PostDetailResponse;
 import io.linfeng.common.response.PostListResponse;
-import io.linfeng.common.response.TopicDetailResponse;
 import io.linfeng.common.utils.*;
 import io.linfeng.modules.admin.entity.*;
 import io.linfeng.modules.admin.service.*;
 import io.linfeng.modules.app.entity.PostCollectionEntity;
-import io.linfeng.modules.app.entity.TopicAdminEntity;
-import io.linfeng.modules.app.entity.UserTopicEntity;
 import io.linfeng.modules.app.form.*;
 import io.linfeng.modules.app.service.*;
 import io.linfeng.modules.app.utils.LocalUser;
-import javafx.geometry.Pos;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,8 +32,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -62,8 +53,6 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
     private CommentService commentService;
     @Autowired
     private DiscussService discussService;
-    @Autowired
-    private MessageService messageService;
     @Autowired
     private LocalUser localUser;
     @Autowired
@@ -116,7 +105,7 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
 
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void deleteByAdmin(List<Integer> ids) {
 
         boolean remove = this.removeByIds(ids);
@@ -240,6 +229,7 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public Integer addPost(AddPostForm request, AppUserEntity user) {
         if(user.getStatus()!=0){
             throw new LinfengException("您的账号已被禁用");

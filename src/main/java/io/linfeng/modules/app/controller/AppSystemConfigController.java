@@ -14,7 +14,6 @@ package io.linfeng.modules.app.controller;
 import io.linfeng.common.utils.R;
 import io.linfeng.modules.admin.entity.SystemEntity;
 import io.linfeng.modules.admin.service.SystemService;
-import io.linfeng.modules.sys.service.SysConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +33,9 @@ public class AppSystemConfigController {
 
     @GetMapping("/miniConfig")
     public R miniConfig(){
-        SystemEntity system = systemService.lambdaQuery().eq(SystemEntity::getConfig, "miniapp").one();
+        SystemEntity system = systemService.lambdaQuery()
+                .eq(SystemEntity::getConfig, "miniapp")
+                .one();
         return R.ok().put("logo",system.getIntro());
     }
 

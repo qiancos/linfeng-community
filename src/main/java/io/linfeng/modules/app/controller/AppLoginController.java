@@ -33,6 +33,7 @@ import java.util.Map;
 
 /**
  * APP登录接口
+ *
  * @author linfeng
  * @date 2022/6/9 22:40
  */
@@ -51,12 +52,10 @@ public class AppLoginController {
 
     @PostMapping("/sendSmsCode")
     @ApiOperation("发送验证码")
-    public R sendSmsCode(@RequestBody SendCodeForm param){
-        String code=appUserService.sendSmsCode(param);
-        return R.ok("测试阶段验证码:"+code);
+    public R sendSmsCode(@RequestBody SendCodeForm param) {
+        String code = appUserService.sendSmsCode(param);
+        return R.ok("测试阶段验证码:" + code);
     }
-
-
 
 
     /**
@@ -64,10 +63,10 @@ public class AppLoginController {
      */
     @PostMapping("/smsLogin")
     @ApiOperation("手机验证码登录")
-    public R smsLogin(@RequestBody SmsLoginForm form, HttpServletRequest request){
+    public R smsLogin(@RequestBody SmsLoginForm form, HttpServletRequest request) {
 
         //用户登录
-        Integer userId = appUserService.smsLogin(form,request);
+        Integer userId = appUserService.smsLogin(form, request);
 
         //生成token
         String token = jwtUtils.generateToken(userId);
@@ -84,7 +83,7 @@ public class AppLoginController {
      */
     @PostMapping("/miniWxlogin")
     @ApiOperation("手机验证码登录")
-    public R miniWxLogin(@RequestBody WxLoginForm form){
+    public R miniWxLogin(@RequestBody WxLoginForm form) {
 
         //用户登录
         Integer userId = appUserService.miniWxLogin(form);
@@ -100,14 +99,12 @@ public class AppLoginController {
     }
 
 
-
-
     @Login
     @GetMapping("/userInfo")
     @ApiOperation("获取用户信息")
-    public R userInfo(@LoginUser AppUserEntity user){
+    public R userInfo(@LoginUser AppUserEntity user) {
 
-        AppUserResponse response=appUserService.getUserInfo(user);
+        AppUserResponse response = appUserService.getUserInfo(user);
         return R.ok().put("result", response);
     }
 
@@ -115,18 +112,17 @@ public class AppLoginController {
     @Login
     @PostMapping("/userInfoEdit")
     @ApiOperation("用户修改个人信息")
-    public R userInfoEdit(@LoginUser AppUserEntity user, @RequestBody AppUserUpdateForm appUserUpdateForm){
-        appUserService.updateAppUserInfo(appUserUpdateForm,user);
+    public R userInfoEdit(@LoginUser AppUserEntity user, @RequestBody AppUserUpdateForm appUserUpdateForm) {
+        appUserService.updateAppUserInfo(appUserUpdateForm, user);
         return R.ok("修改成功");
     }
-
 
 
     @Login
     @PostMapping("/addFollow")
     @ApiOperation("关注用户")
-    public R addFollow(@LoginUser AppUserEntity user, @RequestBody AddFollowForm request){
-        appUserService.addFollow(request,user);
+    public R addFollow(@LoginUser AppUserEntity user, @RequestBody AddFollowForm request) {
+        appUserService.addFollow(request, user);
         return R.ok("关注用户成功");
     }
 
@@ -134,25 +130,26 @@ public class AppLoginController {
     @Login
     @PostMapping("/cancelFollow")
     @ApiOperation("取消关注用户")
-    public R cancelFollow(@LoginUser AppUserEntity user, @RequestBody AddFollowForm request){
-        appUserService.cancelFollow(request,user);
+    public R cancelFollow(@LoginUser AppUserEntity user, @RequestBody AddFollowForm request) {
+        appUserService.cancelFollow(request, user);
         return R.ok("取消关注用户成功");
     }
+
     @Login
     @GetMapping("/userFans")
     @ApiOperation("我的粉丝分页列表")
-    public R userFans(@RequestParam("page") Integer page,@LoginUser AppUserEntity user){
+    public R userFans(@RequestParam("page") Integer page, @LoginUser AppUserEntity user) {
 
-        AppPageUtils pages =appUserService.userFans(page,user.getUid());
+        AppPageUtils pages = appUserService.userFans(page, user.getUid());
         return R.ok().put("result", pages);
     }
 
     @Login
     @GetMapping("/follow")
     @ApiOperation("我的关注分页列表")
-    public R follow(@RequestParam("page") Integer page,@LoginUser AppUserEntity user){
+    public R follow(@RequestParam("page") Integer page, @LoginUser AppUserEntity user) {
 
-        AppPageUtils pages =appUserService.follow(page,user);
+        AppPageUtils pages = appUserService.follow(page, user);
         return R.ok().put("result", pages);
     }
 
@@ -160,9 +157,9 @@ public class AppLoginController {
     @Login
     @PostMapping("/userInfoById")
     @ApiOperation("用户个人主页信息")
-    public R userInfoById(@RequestBody AppUserInfoForm request, @LoginUser AppUserEntity user){
-        AppUserInfoResponse response=appUserService.findUserInfoById(request.getUid(),user);
+    public R userInfoById(@RequestBody AppUserInfoForm request, @LoginUser AppUserEntity user) {
+        AppUserInfoResponse response = appUserService.findUserInfoById(request.getUid(), user);
 
-        return R.ok().put("result",response);
+        return R.ok().put("result", response);
     }
 }
