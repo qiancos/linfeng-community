@@ -250,7 +250,16 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
         AppPageUtils appPage;
         Page<PostEntity> page = new Page<>(request.getPage(), 10);
         QueryWrapper<PostEntity> queryWrapper = new QueryWrapper<>();
-
+        if(request.getClassId()!=null){
+            if(request.getClassId()==0){
+                queryWrapper.lambda().orderByDesc(PostEntity::getReadCount);
+                appPage = this.mapPostList(page, queryWrapper, 0);
+            }else{
+                queryWrapper.lambda().eq(PostEntity::getCut,request.getClassId());
+                queryWrapper.lambda().orderByDesc(PostEntity::getId);
+                appPage = this.mapPostList(page, queryWrapper, 0);
+            }
+        }else{
             if (ObjectUtil.isNotNull(request.getTopicId())) {
                 queryWrapper.lambda().eq(PostEntity::getTopicId, request.getTopicId());
             }
@@ -270,6 +279,9 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
             } else {
                 appPage = this.mapPostList(page, queryWrapper, user.getUid());
             }
+        }
+
+
         return appPage;
     }
 
