@@ -1,7 +1,7 @@
 <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">linfeng-community 开源版</h1>
 <h4 align="center">基于SpringBoot2+MybatisPlus+Shiro+Quartz+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目</h4>
 
-[H5端演示](https://www.linfeng.tech) | [后台演示](https://dev.linfeng.tech) | [群聊](https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg) | [文档](https://www.kancloud.cn/linfengkj/linfeng_community/2754703) | [版本区别](http://pic.linfeng.tech/test/20220816/22d8a6fa4ae845e1b58914a96acec6b7.png) | [Github](https://github.com/virus010101/linfeng-community) 
+[H5端演示](https://www.linfeng.tech) | [后台演示](https://dev.linfeng.tech) | [群聊](https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg) | [文档](https://www.kancloud.cn/linfengkj/linfeng_community/2754703) | [版本区别](http://pic.linfeng.tech/test/20220906/be9dfe9085024347a82d531d4c96cc51.png) | [Github](https://github.com/virus010101/linfeng-community) 
 
 #### 1.介绍
 
@@ -115,7 +115,7 @@ https://github.com/virus010101/linfeng-community
 
 **标准版和开源版的区别**：
 
-http://pic.linfeng.tech/test/20220816/22d8a6fa4ae845e1b58914a96acec6b7.png
+http://pic.linfeng.tech/test/20220906/be9dfe9085024347a82d531d4c96cc51.png
 
 http://pic.linfeng.tech/test/20220727/e472fbef0a8f412b912bea6fa5317acf.png
 
@@ -129,9 +129,27 @@ http://pic.linfeng.tech/test/20220727/e472fbef0a8f412b912bea6fa5317acf.png
 
 #### 5.标准版更新记录
 
-***当前版本V1.4.1***
+***当前版本V1.4.2***
 
-![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic27.png)
+![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic26.png)
+
+<u>2022.9.6</u>
+
+###### **V1.4.2发布**
+
+【新增】1.新增举报模块 [重磅]
+
+【新增】2.重构升级用户主页和个人页UI [重磅]
+
+【新增】3.APP端适配 [重磅]
+
+【优化】4.帖子列表操作栏动态处理
+
+【优化】5.帖子列表查询优化及移动端结构调整
+
+【优化】6.增加个人页背景图公共配置项
+
+
 
 <u>2022.8.16</u>
 
