@@ -15,6 +15,12 @@
 				:auto-upload="false"
 			></u-upload>
 		</block>
+		<!-- 分类 -->
+		<view @click="chooseClass" class="choose-item">
+			<u-icon class="icon add-icon" name="file-text-fill" color="#999" size="40"></u-icon>
+			<text class="txt">{{ cateName || '选择分类' }}</text>
+			<u-icon class="u-icon" name="arrow-right"></u-icon>
+		</view>
 		<!-- 所在位置 -->
 		<view @click="chooseLocation" class="choose-item">
 			<u-icon class="icon add-icon" name="map" color="#999" size="40"></u-icon>
@@ -46,9 +52,10 @@ export default {
 				longitude: 0,
 				latitude: 0,
 				address: '',
-				cut: 0,
+				cut: 0,//分类id
 				pay: '',
 			},
+			cateName:'',
 			header: {
 				token: uni.getStorageSync('token')
 			},
@@ -60,7 +67,11 @@ export default {
 		this.form.latitude = location.latitude;
 	},
 	methods: {
-		
+		chooseClass(){
+			uni.navigateTo({
+				url:"category"
+			})
+		},
 		uploadImg() {
 
 			if (!this.form.content) {

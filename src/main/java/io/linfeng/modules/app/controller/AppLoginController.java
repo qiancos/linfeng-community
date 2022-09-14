@@ -25,6 +25,7 @@ import io.linfeng.modules.app.utils.JwtUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,11 +50,16 @@ public class AppLoginController {
     @Autowired
     private AppUserService appUserService;
 
+    @Value("${sms.open}")
+    private boolean isOpen;
 
     @PostMapping("/sendSmsCode")
-    @ApiOperation("发送验证码")
+    @ApiOperation("测试发送验证码")
     public R sendSmsCode(@RequestBody SendCodeForm param) {
         String code = appUserService.sendSmsCode(param);
+        if(isOpen){
+            //TODO send Aliyun Sms code
+        }
         return R.ok("测试阶段验证码:" + code);
     }
 
