@@ -13,7 +13,7 @@
 
 ***用户端的前端代码在 src\main\resources\static\linfeng-community-uniapp-ky 目录下！***
 
-代码三端开源，包括用户端也发布了开源版
+代码三端开源，包括用户端也发布了开源版（**SQL文件在群文件中**）
 
 #### 2.软件演示
 
@@ -27,11 +27,17 @@
 
 ![移动端APP二维码](https://gitee.com/virus010101/linfeng-community/raw/master/images/apk.png)
 
-**后台管理系统**演示站点：
+**后台管理系统**演示站点
+
+（**注意：**如果多人同时登录同一账号，已登录在线用户会被挤出；所以可在三个测试账号任选一个体验）：
 
 https://dev.linfeng.tech
 
-演示账号： test       密码：123456
+演示账号1： test       密码：123456
+
+演示账号2： test2       密码：123456
+
+演示账号3： test3       密码：123456
 
 ##### 2.2移动端效果截图
 
@@ -57,9 +63,11 @@ https://dev.linfeng.tech
 
 https://dev.linfeng.tech
 
-演示账号： test       
+演示账号： test      （使用test2 或者test3也可以） 
 
 密码：123456
+
+（**注意：**如果多人同时登录同一账号，已登录在线用户会被挤出；所以可在三个测试账号任选一个体验）：
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic05.png)
 
