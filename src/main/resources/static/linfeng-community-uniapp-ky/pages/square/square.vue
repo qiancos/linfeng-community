@@ -49,12 +49,12 @@
 				classList: [{
 					cateId: 0,
 					cateName: '推荐'
-				} ],
+				}],
 				swiperList: [],
 				postList: [],
 				loadPostStatus: 'loadmore',
-				classId:0,
-				page:1,
+				classId: 0,
+				page: 1,
 			}
 		},
 		onLoad() {
@@ -63,22 +63,22 @@
 			this.getClassList();
 		},
 		onReachBottom() {
-			if(this.pageCurrent == 0){
+			if (this.pageCurrent == 0) {
 				this.page++;
 				this.getPostList()
 			}
-			if(this.pageCurrent == 1){
-				
+			if (this.pageCurrent == 1) {
+
 			}
 		},
 		onPullDownRefresh() {
-			if(this.pageCurrent == 0){
-				this.page=1
-				this.pageList=[]
+			if (this.pageCurrent == 0) {
+				this.page = 1
+				this.pageList = []
 				this.getPostList()
 			}
-			if(this.pageCurrent == 1){
-				
+			if (this.pageCurrent == 1) {
+
 			}
 		},
 		methods: {
@@ -100,20 +100,20 @@
 			},
 			tabChange(index) {
 				this.current = index
-				this.page=1
-				this.classId=this.classList[index].cateId
-				this.postList=[]
+				this.page = 1
+				this.classId = this.classList[index].cateId
+				this.postList = []
 				this.getPostList()
 			},
-			getClassList(){
-				this.$H.get('topic/classList').then(res=>{
+			getClassList() {
+				this.$H.get('topic/classList').then(res => {
 					console.log(res.result)
-					this.classList=this.classList.concat(res.result)
+					this.classList = this.classList.concat(res.result)
 				})
 			},
 			// 根据分页和分类展示帖子列表
 			getPostList() {
-				console.log('classId:',this.classId)
+				console.log('classId:', this.classId)
 				this.loadPostStatus = 'loading';
 				this.$H
 					.post('post/list', {
