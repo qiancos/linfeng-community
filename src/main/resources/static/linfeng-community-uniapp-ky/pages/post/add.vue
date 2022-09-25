@@ -1,19 +1,12 @@
 <template>
 	<view class="container">
 		<input v-model="form.title" class="title-input" placeholder="标题" />
-		<textarea placeholder="说些什么叭..." :auto-height="true" maxlength="-1" v-model="form.content" class="content-display"></textarea>
+		<textarea placeholder="说些什么叭..." :auto-height="true" maxlength="-1" v-model="form.content"
+			class="content-display"></textarea>
 		<!-- 上传图片 -->
 		<block v-if="form.type == 1">
-			<u-upload
-				ref="uUpload"
-				:size-type="['original']"
-				name="Image"
-				:max-count="4"
-				:header="header"
-				:action="uploadImgUrl"
-				@on-uploaded="submit"
-				:auto-upload="false"
-			></u-upload>
+			<u-upload ref="uUpload" :size-type="['original']" name="Image" :max-count="4" :header="header"
+				:action="uploadImgUrl" @on-uploaded="submit" :auto-upload="false"></u-upload>
 		</block>
 		<!-- 分类 -->
 		<view @click="chooseClass" class="choose-item">
@@ -34,145 +27,154 @@
 </template>
 
 <script>
-export default {
-	data() {
-		return {
-			btnStyle: {
-				color: "#fff",
-				backgroundColor: '#333333'
-			},
-			uploadImgUrl: this.$c.domain + 'common/upload',
-			form: {
-				title: '',
-				type: 1,
-				topicId: 2,
-				discussId: '',
-				content: '',
-				media: [],
-				longitude: 0,
-				latitude: 0,
-				address: '',
-				cut: 0,//分类id
-				pay: '',
-			},
-			cateName:'',
-			header: {
-				token: uni.getStorageSync('token')
-			},
-			
-		};
-	},
-	onLoad(options) {
-		this.form.longitude = location.longitude;
-		this.form.latitude = location.latitude;
-	},
-	methods: {
-		chooseClass(){
-			uni.navigateTo({
-				url:"category"
-			})
-		},
-		uploadImg() {
+	export default {
+		data() {
+			return {
+				btnStyle: {
+					color: "#fff",
+					backgroundColor: '#333333'
+				},
+				uploadImgUrl: this.$c.domain + 'common/upload',
+				form: {
+					title: '',
+					type: 1,
+					topicId: 2,
+					discussId: '',
+					content: '',
+					media: [],
+					longitude: 0,
+					latitude: 0,
+					address: '',
+					cut: 0, //分类id
+					pay: '',
+				},
+				cateName: '',
+				header: {
+					token: uni.getStorageSync('token')
+				},
 
-			if (!this.form.content) {
-				this.$u.toast('内容不能为空');
-				return;
-			}
-			if (!this.form.title) {
-				this.$u.toast('标题不能为空');
-				return;
-			}
-			
-			uni.showLoading({
-				mask: true,
-				title: '发布中'
-			});
-			this.$refs.uUpload.upload();
+			};
 		},
-		chooseLocation() {
-			let that = this;
-			uni.chooseLocation({
-				success: function(res) {
-					that.form.address = res.name;
-					that.form.latitude = res.latitude;
-					that.form.longitude = res.longitude;
+		onLoad(options) {
+			this.form.longitude = location.longitude;
+			this.form.latitude = location.latitude;
+		},
+		methods: {
+			chooseClass() {
+				uni.navigateTo({
+					url: "category"
+				})
+			},
+			uploadImg() {
+
+				if (!this.form.content) {
+					this.$u.toast('内容不能为空');
+					return;
 				}
-			});
-		},
-		submit(e) {
-			uni.showLoading({
-				mask: true,
-				title: '发布中'
-			});
-
-			let mediaList = [];
-			e.forEach(function(item, index) {
-				mediaList.push(item.response.result);
-			});
-
-			this.form.media = mediaList;
-
-			this.$H.post('post/addPost', this.form).then(res => {
-				if (res.code == 0) {
-					uni.redirectTo({
-						url: '/pages/post/post?id=' + res.result
-					});
+				if (!this.form.title) {
+					this.$u.toast('标题不能为空');
+					return;
 				}
-				uni.hideLoading();
-			});
+
+				uni.showLoading({
+					mask: true,
+					title: '发布中'
+				});
+				this.$refs.uUpload.upload();
+			},
+			chooseLocation() {
+				let that = this;
+				uni.chooseLocation({
+					success: function(res) {
+						that.form.address = res.name;
+						that.form.latitude = res.latitude;
+						that.form.longitude = res.longitude;
+					}
+				});
+			},
+			submit(e) {
+				uni.showLoading({
+					mask: true,
+					title: '发布中'
+				});
+
+				let mediaList = [];
+				e.forEach(function(item, index) {
+					mediaList.push(item.response.result);
+				});
+
+				this.form.media = mediaList;
+
+				this.$H.post('post/addPost', this.form).then(res => {
+					if (res.code == 0) {
+						uni.redirectTo({
+							url: '/pages/post/post?id=' + res.result
+						});
+					}
+					uni.hideLoading();
+				});
+			}
 		}
-	}
-};
+	};
 </script>
 
 <style lang="scss" scoped>
-.title-input{
-	border-bottom: 1px solid #F5F5F5;
-	margin: 20rpx 0;
-	padding: 20rpx 0;
-}
+	.title-input {
+		border-bottom: 1px solid #F5F5F5;
+		margin: 20rpx 0;
+		padding: 20rpx 0;
+	}
 
-.content-display {
-	width: 100%;
-	padding: 20rpx 0;
-	min-height: 300rpx;
-}
-.choose-item{
-	display: flex;
-	align-items: center;
-	padding: 20rpx;
-	border-bottom: 1px solid #F5F5F5;
-	&:last-child{
-		border: 0;
+	.content-display {
+		width: 100%;
+		padding: 20rpx 0;
+		min-height: 300rpx;
 	}
-	.txt{
-		margin-left: 20rpx;
-	}
-	.sw{
-		margin-left: 300rpx;
-	}
-	.inputStyle{
-		margin-left: 60rpx;
-		width: 400rpx;
-	}
-	.radio{
-		margin-left: 320rpx;
-	}
-	.icon{
-		width: 40rpx;
-		height: 40rpx;
-	}
-	.u-icon{
-		margin-left: auto;
-		color: #999;
-	}
+
+	.choose-item {
+		display: flex;
+		align-items: center;
+		padding: 20rpx;
+		border-bottom: 1px solid #F5F5F5;
 	
-	.add-icon{
-		margin-left: 0;
+	&:last-child {
+			border: 0;
+		}
+
+		.txt {
+			margin-left: 20rpx;
+		}
+
+		.sw {
+			margin-left: 300rpx;
+		}
+
+		.inputStyle {
+			margin-left: 60rpx;
+			width: 400rpx;
+		}
+
+		.radio {
+			margin-left: 320rpx;
+		}
+
+		.icon {
+			width: 40rpx;
+			height: 40rpx;
+		}
+
+		.u-icon {
+			margin-left: auto;
+			color: #999;
+		}
+
+		.add-icon {
+			margin-left: 0;
+		}
 	}
-}
-.button-style{
-	margin-top: 50rpx;
-	color: #F4F4F5;
-}
+
+	.button-style {
+		margin-top: 50rpx;
+		color: #F4F4F5;
+	}
 </style>
