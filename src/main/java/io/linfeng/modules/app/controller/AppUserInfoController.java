@@ -12,6 +12,7 @@
 package io.linfeng.modules.app.controller;
 
 import io.linfeng.common.response.AppUserInfoResponse;
+import io.linfeng.common.response.AppUserRankResponse;
 import io.linfeng.common.response.AppUserResponse;
 import io.linfeng.common.utils.AppPageUtils;
 import io.linfeng.common.utils.R;
@@ -30,6 +31,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -41,7 +43,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/app/user")
 @Api(tags = "APP登录接口")
-public class AppLoginController {
+public class AppUserInfoController {
 
 
     @Autowired
@@ -134,13 +136,7 @@ public class AppLoginController {
     }
 
 
-    @Login
-    @PostMapping("/cancelFollow")
-    @ApiOperation("取消关注用户")
-    public R cancelFollow(@LoginUser AppUserEntity user, @RequestBody AddFollowForm request) {
-        appUserService.cancelFollow(request, user);
-        return R.ok("取消关注用户成功");
-    }
+
 
     @Login
     @GetMapping("/userFans")
@@ -169,4 +165,14 @@ public class AppLoginController {
 
         return R.ok().put("result", response);
     }
+
+
+    @Login
+    @PostMapping("/userRank")
+    @ApiOperation("发帖达人列表")
+    public R userRank() {
+        List<AppUserRankResponse> list=appUserService.userRank();
+        return R.ok().put("result",list);
+    }
+
 }
