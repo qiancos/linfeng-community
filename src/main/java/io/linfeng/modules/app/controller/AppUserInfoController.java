@@ -117,6 +117,13 @@ public class AppUserInfoController {
         return R.ok().put("result", response);
     }
 
+    @Login
+    @PostMapping("/cancelFollow")
+    @ApiOperation("取消关注用户")
+    public R cancelFollow(@LoginUser AppUserEntity user, @RequestBody AddFollowForm request) {
+        appUserService.cancelFollow(request, user);
+        return R.ok("取消关注用户成功");
+    }
 
     @Login
     @PostMapping("/userInfoEdit")

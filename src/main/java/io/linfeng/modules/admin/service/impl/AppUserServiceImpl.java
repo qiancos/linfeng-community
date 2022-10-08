@@ -332,6 +332,9 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
         DateTime month = cn.hutool.core.date.DateUtil.beginOfMonth(new Date());
 
         List<PostEntity> postList = postService.lambdaQuery().gt(PostEntity::getCreateTime, month).list();
+        if(postList.isEmpty()){
+            return new ArrayList<>();
+        }
         Map<Integer, Long> collect = postList.stream().collect(Collectors.groupingBy(PostEntity::getUid, Collectors.counting()));
         Map<Integer, Long> sorted = collect
                 .entrySet()
