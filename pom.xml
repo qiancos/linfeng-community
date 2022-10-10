@@ -6,7 +6,7 @@
 	<artifactId>linfeng-community</artifactId>
 	<version>3.0.0</version>
 	<packaging>jar</packaging>
-	<description>林风社交论坛项目</description>
+	<description>林风社交论坛项目开源版</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -272,14 +272,6 @@
 				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.4.14</version>
-				<!--<executions>-->
-					<!--<execution>-->
-						<!--<phase>package</phase>-->
-						<!--<goals>-->
-							<!--<goal>build</goal>-->
-						<!--</goals>-->
-					<!--</execution>-->
-				<!--</executions>-->
 				<configuration>
 					<imageName>project/fast</imageName>
 					<dockerDirectory>${project.basedir}</dockerDirectory>
