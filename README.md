@@ -1,11 +1,11 @@
 <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">linfeng-community 开源版</h1>
 <h4 align="center">基于SpringBoot2+MybatisPlus+Shiro+Quartz+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目</h4>
 
-[H5端演示](https://www.linfeng.tech) | [后台演示](https://dev.linfeng.tech) | [群聊](https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg) | [文档](https://www.kancloud.cn/linfengkj/linfeng_community/2754703) | [版本区别](http://pic.linfeng.tech/test/20220906/be9dfe9085024347a82d531d4c96cc51.png) | [Github](https://github.com/virus010101/linfeng-community) | [官网](https://net.linfeng.tech) 
+ [官网](https://net.linfeng.tech) |[H5端演示](https://www.linfeng.tech) | [后台演示](https://dev.linfeng.tech) | [群聊](https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg) | [文档](https://www.kancloud.cn/linfengkj/linfeng_community/2754703) | [版本区别](http://pic.linfeng.tech/test/20220906/be9dfe9085024347a82d531d4c96cc51.png) | [Github](https://github.com/virus010101/linfeng-community) 
 
 #### 1.介绍
 
-**官网**：[https://net.linfeng.tech]
+**官网**：https://net.linfeng.tech
 
 林风社交论坛uniapp**小程序/H5/APP版本**基于SpringBoot2+MybatisPlus+Shiro+Quartz+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目。 项目分为Uniapp用户端（**兼容H5、微信小程序、APP端**）和Vue后台管理端（包括完整的权限处理）， 基于以下技术栈开发：SpringBoot、MybatisPlus、Shiro、Quartz、jwt、Redis、Vue、Uniapp、MySQL5.7。
 
@@ -119,7 +119,7 @@ https://github.com/virus010101/linfeng-community
 
 #### 4.必看说明
 
-**官网**：[https://net.linfeng.tech]
+**官网**：https://net.linfeng.tech
 
 1.**后台前端的代码**在 **src\main\resources\static\linfeng-community-vue** 目录下！
 
