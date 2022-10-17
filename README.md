@@ -5,8 +5,6 @@
 
 #### 1.介绍
 
-**官网**：https://net.linfeng.tech
-
 林风社交论坛uniapp**小程序/H5/APP版本**基于SpringBoot2+MybatisPlus+Shiro+Quartz+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目。 项目分为Uniapp用户端（**兼容H5、微信小程序、APP端**）和Vue后台管理端（包括完整的权限处理）， 基于以下技术栈开发：SpringBoot、MybatisPlus、Shiro、Quartz、jwt、Redis、Vue、Uniapp、MySQL5.7。
 
 功能：图文帖，短视频，圈子，私聊，微信支付（小程序/H5/app），付费贴，积分签到，钱包充值，积分余额兑换，话题标签，抽奖大转盘，手机号邮箱登录，虚拟用户发帖，举报，第三方广告，会员模块 等完整功能，直接看演示更直观↓↓↓↓↓↓
@@ -16,6 +14,8 @@
 ***用户端的前端代码在 src\main\resources\static\linfeng-community-uniapp-ky 目录下！***
 
 代码三端开源，包括用户端也发布了开源版（**SQL文件在群文件中**）
+
+**官网**：[林风社交论坛官网](https://net.linfeng.tech)
 
 
 
@@ -119,8 +119,6 @@ https://github.com/virus010101/linfeng-community
 
 #### 4.必看说明
 
-**官网**：https://net.linfeng.tech
-
 1.**后台前端的代码**在 **src\main\resources\static\linfeng-community-vue** 目录下！
 
 2.**用户端的前端代码**在 **src\main\resources\static\linfeng-community-uniapp-ky** 目录下！
@@ -131,9 +129,7 @@ https://github.com/virus010101/linfeng-community
 
 http://pic.linfeng.tech/test/20220906/be9dfe9085024347a82d531d4c96cc51.png
 
-http://pic.linfeng.tech/test/20220727/e472fbef0a8f412b912bea6fa5317acf.png
-
-了解更多请查看官网
+了解更多请查看**官网**：https://net.linfeng.tech
 
 4.SQL文件开源的，在QQ群，开源不易，**请左上角star后备注gitee的用户名加QQ群（640700429）获取**
 
@@ -143,7 +139,17 @@ http://pic.linfeng.tech/test/20220727/e472fbef0a8f412b912bea6fa5317acf.png
 
 <img src="https://gitee.com/virus010101/linfeng-community/raw/master/images/mine.jpg" style="zoom: 25%;" />
 
-#### 5.标准版更新记录
+#### 5.开源须知
+
+1.开源版仅允许用于个人学习研究使用.
+
+2.禁止将本开源的代码和资源进行任何形式任何名义的改造或出售.
+
+3.限制商用，如果需要商业使用请联系我们。二维码如上。
+
+
+
+#### 6.标准版更新记录
 
 ***当前版本V1.5.0***
 
