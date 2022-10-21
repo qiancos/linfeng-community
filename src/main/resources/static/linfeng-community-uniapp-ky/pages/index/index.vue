@@ -61,9 +61,6 @@
 		onLoad() {
 			this.getLastPost();
 		},
-		onShow() {
-			// this.getMsgNum();
-		},
 		onReachBottom() {
 			if (this.current === 0) {
 				this.page1++;
@@ -80,7 +77,6 @@
 				this.page1 = 1;
 				this.followUserPost = [];
 				this.getFollowUserPost();
-				// this.getMsgNum();
 			}
 			if (this.current === 1) {
 				this.page2 = 1;
@@ -90,11 +86,7 @@
 			uni.stopPullDownRefresh();
 		},
 		methods: {
-			getMsgNum() {
-				this.$H.post('message/num').then(res => {
-					this.$store.state.messegeNum = [0, 0, 0, res.result.allCount, 0];
-				});
-			},
+			
 			tabChange(index) {
 				this.current = index;
 				this.followUserPost = [];
@@ -103,7 +95,7 @@
 				if (index === 0) {
 					this.page1 = 1;
 					this.getFollowUserPost();
-					this.getMsgNum();
+					
 				}
 				if (index === 1) {
 					this.page2 = 1;
