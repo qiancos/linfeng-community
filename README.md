@@ -127,7 +127,7 @@ https://github.com/virus010101/linfeng-community
 
 **标准版和开源版的区别**：
 
-http://pic.linfeng.tech/test/20220906/be9dfe9085024347a82d531d4c96cc51.png
+https://net.linfeng.tech/version/version.html
 
 了解更多请查看**官网**：https://net.linfeng.tech
 
