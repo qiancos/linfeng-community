@@ -1,11 +1,11 @@
 <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">linfeng-community 开源版</h1>
-<h4 align="center">基于SpringBoot2+MybatisPlus+Shiro+Quartz+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目</h4>
+<h4 align="center">基于SpringBoot+MybatisPlus+Shiro+Quartz+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目</h4>
 
  [官网](https://net.linfeng.tech) |[H5端演示](https://www.linfeng.tech) | [后台演示](https://dev.linfeng.tech) | [群聊](https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg) | [文档](https://www.kancloud.cn/linfengkj/linfeng_community/2754703) | [版本区别](http://pic.linfeng.tech/test/20220906/be9dfe9085024347a82d531d4c96cc51.png) | [Github](https://github.com/virus010101/linfeng-community) 
 
 #### 1.介绍
 
-林风社交论坛uniapp**小程序/H5/APP版本**基于SpringBoot2+MybatisPlus+Shiro+Quartz+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目。 项目分为Uniapp用户端（**兼容H5、微信小程序、APP端**）和Vue后台管理端（包括完整的权限处理）， 基于以下技术栈开发：SpringBoot、MybatisPlus、Shiro、Quartz、jwt、Redis、Vue、Uniapp、MySQL5.7。
+林风社交论坛uniapp**小程序/H5/APP版本**基于SpringBoot+MybatisPlus+Shiro+Quartz+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目。 项目分为Uniapp用户端（**兼容H5、微信小程序、APP端**）和Vue后台管理端（包括完整的权限处理）， 基于以下技术栈开发：SpringBoot、MybatisPlus、Shiro、Quartz、jwt、Redis、Vue、Uniapp、MySQL5.7。
 
 功能：图文帖，短视频，圈子，私聊，微信支付（小程序/H5/app），付费贴，积分签到，钱包充值，积分余额兑换，话题标签，抽奖大转盘，手机号邮箱登录，虚拟用户发帖，举报，第三方广告，会员模块 等完整功能，直接看演示更直观↓↓↓↓↓↓
 
@@ -15,13 +15,13 @@
 
 代码三端开源，包括用户端也发布了开源版（**SQL文件在群文件中**）
 
-**官网**：[林风社交论坛官网](https://net.linfeng.tech)
+**官网**：[林风社交论坛官网](https://net.linfeng.tech)     
 
 
 
 #### 2.软件演示
 
-##### 2.1移动端H5演示版本（演示站为标准版，手机扫码浏览/输入手机号登录）或者 https://www.linfeng.tech  小程序效果演示和h5一致（除了登录不一样）
+##### 2.1移动端H5演示版本（演示站为标准版，扫码浏览/输入任意手机号登录）或者访问 https://www.linfeng.tech      小程序效果演示和h5一致（除了登录不一样）
 
 ![移动端H5二维码](https://gitee.com/virus010101/linfeng-community/raw/master/images/er.png)
 
@@ -42,6 +42,8 @@ https://dev.linfeng.tech
 演示账号2： test2       密码：123456
 
 演示账号3： test3       密码：123456
+
+  [查看开源版功能清单](https://net.linfeng.tech/version/version.html)
 
 ##### 2.2移动端效果截图
 
@@ -79,15 +81,11 @@ https://dev.linfeng.tech
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic06.png)
 
-![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic07.png)
-
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic08.png)
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic09.png)
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic10.png)
-
-![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic03.png)
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic21.png)
 
@@ -104,10 +102,10 @@ https://dev.linfeng.tech
 1.  配置数据库和redis。先启动redis，再启动后端api服务
 2.  数据库请使用MySQL5.7，其他版本可能会有问题。sql文件请点个star后再加群获取
 3.  配置后台前端  先npm install 下载依赖后，再npm run dev即可
-4.  用户端uniapp代码  先npm install 安装依赖后，再启动项目
-5.  具体配置可以参考标准版的文档
+4.  用户端uniapp代码  先npm install 安装依赖后，再在HbuilderX中启动项目
+5.  具体配置可以参考标准版的文档或群文档
 
-**林风社交论坛项目文档地址**：https://www.kancloud.cn/linfengkj/linfeng_community/2754703
+**林风社交论坛项目标准版文档地址**：https://www.kancloud.cn/linfengkj/linfeng_community/2754703
 
 
 
@@ -123,7 +121,7 @@ https://github.com/virus010101/linfeng-community
 
 2.**用户端的前端代码**在 **src\main\resources\static\linfeng-community-uniapp-ky** 目录下！
 
-3.**代码已经全部开源，包括用户端也发布了开源版**。演示站点的是标准版，不是开源版。
+3.**代码三端开源，包括用户端也发布了开源版**。**演示站点的是标准版，不是开源版。**
 
 **标准版和开源版的区别**：
 
@@ -141,11 +139,14 @@ https://net.linfeng.tech/version/version.html
 
 #### 5.开源须知
 
-1.开源版仅允许用于个人学习研究使用.
+- 开源版仅允许用于个人学习研究使用.
 
-2.禁止将本开源的代码和资源进行任何形式任何名义的改造或出售.
 
-3.限制商用，如果需要商业使用请联系我们。二维码如上。
+- 禁止将本开源的代码和资源进行任何形式任何名义的改造或出售.
+
+
+- 限制商用，如果需要商业使用请联系我们。二维码如上。
+
 
 
 
