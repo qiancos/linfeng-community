@@ -313,8 +313,10 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
             //新注册用户
             AppUserEntity appUser = new AppUserEntity();
             appUser.setGender(0);
-            appUser.setAvatar(form.getAvatar());
-            appUser.setUsername(form.getUsername());
+//            appUser.setAvatar(form.getAvatar());
+//            appUser.setUsername(form.getUsername());
+            appUser.setAvatar(Constant.DEAULT_HEAD);
+            appUser.setUsername("LF_wx" + RandomUtil.randomNumbers(8));
             appUser.setCreateTime(DateUtil.nowDateTime());
             appUser.setUpdateTime(DateUtil.nowDateTime());
             appUser.setOpenid(openId);
