@@ -111,7 +111,6 @@
 			} else {
 				this.hasLogin = false;
 			}
-			// this.getMsgNum();
 		},
 		onShareAppMessage(res) {
 			let imgURL = 'http://pic.linfeng.tech/logo.png';
