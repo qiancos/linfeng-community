@@ -42,15 +42,15 @@
 				gender:[
 					{
 						value:1,
-						lable:"男"
+						label:"男"
 					},
 					{
 						value:2,
-						lable:"女"
+						label:"女"
 					},
 					{
 						value:0,
-						lable:"保密"
+						label:"保密"
 					}
 				]
 			};
