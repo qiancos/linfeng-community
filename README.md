@@ -27,7 +27,7 @@
 
 **APP安卓端：**
 
-手机浏览器扫码下载体验版（下载密码：1111）
+手机浏览器扫码下载体验版（安卓版）
 
 ![移动端APP二维码](https://gitee.com/virus010101/linfeng-community/raw/master/images/apk.png)
 
