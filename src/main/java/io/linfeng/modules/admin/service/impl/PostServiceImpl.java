@@ -63,11 +63,11 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
         //条件查询
         String key = (String)params.get("key");
         String status = (String)params.get("status");
-        if(!WechatUtil.isEmpty(key)){
+        if(!ObjectUtil.isEmpty(key)){
             params.put("page","1");//如果是查询分页重置为第一页
             queryWrapper.like("content", key).or().like("title",key);
         }
-        if(!WechatUtil.isEmpty(status)){
+        if(!ObjectUtil.isEmpty(status)){
             params.put("page","1");//如果是查询分页重置为第一页
             queryWrapper.eq("status", Integer.parseInt(status));
         }

@@ -78,7 +78,7 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
         QueryWrapper<AppUserEntity> queryWrapper = new QueryWrapper<>();
         //模糊查询
         String key = (String) params.get("key");
-        if (!WechatUtil.isEmpty(key)) {
+        if (!ObjectUtil.isEmpty(key)) {
             params.put("page", "1");//如果是查询分页重置为第一页
             queryWrapper.like("username", key).or().like("mobile", key);
         }
@@ -192,7 +192,7 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
 
     @Override
     public void updateAppUserInfo(AppUserUpdateForm appUserUpdateForm, AppUserEntity user) {
-        if (!WechatUtil.isEmpty(appUserUpdateForm.getAvatar())) {
+        if (!ObjectUtil.isEmpty(appUserUpdateForm.getAvatar())) {
             user.setAvatar(appUserUpdateForm.getAvatar());
         }
         baseMapper.updateById(user);
@@ -313,8 +313,6 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
             //新注册用户
             AppUserEntity appUser = new AppUserEntity();
             appUser.setGender(0);
-//            appUser.setAvatar(form.getAvatar());
-//            appUser.setUsername(form.getUsername());
             appUser.setAvatar(Constant.DEAULT_HEAD);
             appUser.setUsername("LF_wx" + RandomUtil.randomNumbers(8));
             appUser.setCreateTime(DateUtil.nowDateTime());
