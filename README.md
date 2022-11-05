@@ -25,9 +25,13 @@
 
 演示站为标准版，输入任意手机号即可注册登录
 
-![移动端H5二维码](https://gitee.com/virus010101/linfeng-community/raw/master/images/er.png)
+![移动端H5二维码](https://gitee.com/virus010101/linfeng-community/raw/master/images/er.jpg)
 
+或者
 
+H5端访问：https://www.linfeng.tech
+
+微信小程序: 搜索”林风bbs“
 
 **后台管理系统**演示站点
 
