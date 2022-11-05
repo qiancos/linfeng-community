@@ -21,15 +21,13 @@
 
 #### 2.软件演示
 
-##### 2.1移动端H5演示版本（演示站为标准版，扫码浏览/输入任意手机号登录）或者访问 https://www.linfeng.tech      小程序效果演示和h5一致（除了登录不一样）
+##### 2.1用户端演示版本
+
+演示站为标准版，输入任意手机号即可注册登录
 
 ![移动端H5二维码](https://gitee.com/virus010101/linfeng-community/raw/master/images/er.png)
 
-**APP安卓端：**
 
-手机浏览器扫码下载体验版（安卓版）
-
-![移动端APP二维码](https://gitee.com/virus010101/linfeng-community/raw/master/images/apk.png)
 
 **后台管理系统**演示站点
 
@@ -152,9 +150,7 @@ https://net.linfeng.tech/version/version.html
 
 #### 6.标准版更新记录
 
-***当前版本V1.5.0***
-
-![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic26.png)
+***当前版本V1.6.0***
 
 
 
