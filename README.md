@@ -27,15 +27,11 @@
 
 ![移动端H5二维码](https://gitee.com/virus010101/linfeng-community/raw/master/images/er.jpg)
 
-或者
+或者  H5端访问：https://www.linfeng.tech      微信小程序:  搜索”林风bbs“
 
-H5端访问：https://www.linfeng.tech
 
-微信小程序: 搜索”林风bbs“
 
-**后台管理系统**演示站点
-
-（**注意**：如果多人同时登录同一账号，已登录在线用户会被挤出；所以可在三个测试账号任选一个体验）：
+**后台管理系统演示站点**
 
 https://dev.linfeng.tech
 
@@ -44,6 +40,8 @@ https://dev.linfeng.tech
 演示账号2： test2       密码：123456
 
 演示账号3： test3       密码：123456
+
+
 
   [查看开源版功能清单](https://net.linfeng.tech/version/version.html)
 
@@ -85,17 +83,9 @@ https://dev.linfeng.tech
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic08.png)
 
-![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic09.png)
-
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic10.png)
 
-![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic21.png)
-
-![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic22.png)
-
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic23.png)
-
-![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic24.png)
 
 
 
@@ -108,8 +98,6 @@ https://dev.linfeng.tech
 5.  具体配置可以参考标准版的文档或群文档
 
 **林风社交论坛项目标准版文档地址**：https://www.kancloud.cn/linfengkj/linfeng_community/2754703
-
-
 
 项目地址：
 
