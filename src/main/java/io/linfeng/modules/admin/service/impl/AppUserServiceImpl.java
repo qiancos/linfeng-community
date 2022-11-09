@@ -200,6 +200,9 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
         if (!ObjectUtil.isEmpty(appUserUpdateForm.getAvatar())) {
             user.setAvatar(appUserUpdateForm.getAvatar());
         }
+        if(!ObjectUtil.isEmpty(appUserUpdateForm.getGender())){
+            user.setGender(appUserUpdateForm.getGender());
+        }
         baseMapper.updateById(user);
         redisUtils.delete("userId:" + user.getUid());
     }
