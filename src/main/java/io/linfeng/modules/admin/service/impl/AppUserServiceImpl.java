@@ -80,8 +80,9 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
         //模糊查询
         String key = (String) params.get("key");
         if (!ObjectUtil.isEmpty(key)) {
-            params.put("page", "1");//如果是查询分页重置为第一页
-            queryWrapper.like("username", key).or().like("mobile", key);
+            queryWrapper.like("username", key)
+                    .or()
+                    .like("mobile", key);
         }
         queryWrapper.lambda().orderByDesc(AppUserEntity::getUid);
         IPage<AppUserEntity> page = this.page(
