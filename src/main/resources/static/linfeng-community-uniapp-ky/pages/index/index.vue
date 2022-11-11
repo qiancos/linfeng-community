@@ -46,11 +46,6 @@
 
 			};
 		},
-		computed: {
-			msgCount() {
-				return this.$store.state.messegeNum
-			}
-		},
 		onShareAppMessage(res) {
 			return {
 				title: this.$c.miniappName,
@@ -152,7 +147,4 @@
 	page {
 		background-color: #F5F5F5;
 	}
-</style>
-<style lang="scss" scoped>
-
 </style>
