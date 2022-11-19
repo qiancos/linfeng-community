@@ -14,7 +14,7 @@ package io.linfeng.modules.admin.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import io.linfeng.common.response.AppCommentResponse;
+import io.linfeng.common.vo.AppCommentResponse;
 import io.linfeng.common.utils.AppPageUtils;
 import io.linfeng.modules.admin.entity.AppUserEntity;
 import io.linfeng.modules.admin.service.AppUserService;

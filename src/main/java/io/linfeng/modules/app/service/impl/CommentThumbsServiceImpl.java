@@ -16,7 +16,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import io.linfeng.common.exception.LinfengException;
 import io.linfeng.common.utils.DateUtil;
 import io.linfeng.modules.admin.entity.AppUserEntity;
-import io.linfeng.modules.app.form.AddThumbsForm;
+import io.linfeng.modules.app.param.AddThumbsForm;
 import org.springframework.stereotype.Service;
 import java.util.Map;
 import java.util.Optional;
