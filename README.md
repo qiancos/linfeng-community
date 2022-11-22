@@ -1,7 +1,7 @@
 <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">linfeng-community 开源版</h1>
 <h4 align="center">基于SpringBoot+MybatisPlus+Shiro+Quartz+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目</h4>
 
- [官网](https://net.linfeng.tech) |[H5端演示](https://www.linfeng.tech) | [后台演示](https://dev.linfeng.tech) | [群聊](https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg) | [文档](https://www.kancloud.cn/linfengkj/linfeng_community/2754703) | [版本区别](http://pic.linfeng.tech/test/20220906/be9dfe9085024347a82d531d4c96cc51.png) | [Github](https://github.com/virus010101/linfeng-community) 
+ [官网](https://net.linfeng.tech) |[用户端演示](https://gitee.com/virus010101/linfeng-community/raw/master/images/er.jpg) | [后台演示](https://dev.linfeng.tech) | [群聊](https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg) | [文档](https://www.kancloud.cn/linfengkj/linfeng_community/2754703) | [版本区别](http://pic.linfeng.tech/test/20220906/be9dfe9085024347a82d531d4c96cc51.png) | [Github](https://github.com/virus010101/linfeng-community) 
 
 #### 1.介绍
 
@@ -139,8 +139,9 @@ https://net.linfeng.tech/version/version.html
 
 
 
-
 #### 6.标准版更新记录
+
+新版V1.7预告：新版功能围绕”社交“展开，增加自研IM即时通讯系统(自研，非第三方，使用零成本，具体功能有：支持图片视频表情包文件的私聊等)、增加好友模块、消息模块升级。
 
 ***当前版本V1.6.0***
 
