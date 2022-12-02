@@ -5,15 +5,15 @@
 
 #### 1.介绍
 
-林风社交论坛uniapp**小程序/H5/APP版本**基于SpringBoot+MybatisPlus+Shiro+Quartz+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目。 项目分为Uniapp用户端（**兼容H5、微信小程序、APP端**）和Vue后台管理端（包括完整的权限处理）， 基于以下技术栈开发：SpringBoot、MybatisPlus、Shiro、Quartz、jwt、Redis、Vue、Uniapp、MySQL5.7。
+林风社交论坛uniapp**小程序/H5/APP版本**基于SpringBoot+MybatisPlus+Shiro+Quartz+jwt+websocket+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目。 项目分为Uniapp用户端（**兼容H5、微信小程序、APP端**）和Vue后台管理端（包括完整的权限处理）， 基于以下技术栈开发：SpringBoot、MybatisPlus、Shiro、Quartz、jwt、Redis、Vue、Uniapp、MySQL5.7。
 
-功能：图文帖，短视频，圈子，私聊，微信支付（小程序/H5/app），付费贴，积分签到，钱包充值，积分余额兑换，话题标签，抽奖大转盘，手机号邮箱登录，虚拟用户发帖，举报，第三方广告，会员模块 等完整功能，直接看演示更直观↓↓↓↓↓↓
+功能：图文帖，短视频，圈子，私聊，微信支付（小程序/H5/app），付费贴，积分签到，钱包充值，积分余额兑换，话题标签，抽奖大转盘，手机号邮箱登录，虚拟用户发帖，举报，第三方广告，会员模块，自研即时通讯IM ，好友模块等完整功能，直接看演示更直观↓↓↓↓↓↓
 
 ***后台前端的代码在 src\main\resources\static\linfeng-community-vue目录下！***
 
 ***用户端的前端代码在 src\main\resources\static\linfeng-community-uniapp-ky 目录下！***
 
-代码三端开源，包括用户端也发布了开源版（**SQL文件在群文件中**）
+开源版代码三端均开源，包括用户端也发布了开源版（**SQL文件在群文件中**）
 
 **官网**：[林风社交论坛官网](https://net.linfeng.tech)     
 
