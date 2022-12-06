@@ -60,12 +60,9 @@
 				} else {
 
 					if (this.$refs.uCode.canGetCode) {
-
-						// 模拟向后端请求验证码
 						uni.showLoading({
 							title: '正在获取验证码'
 						})
-
 						this.$H.post("user/sendSmsCode", {
 							mobile: this.form.mobile
 						}).then(res => {
@@ -73,7 +70,6 @@
 								uni.hideLoading();
 								this.$refs.uCode.start();
 								this.$u.toast(res.msg);
-
 							}
 						})
 					} else {

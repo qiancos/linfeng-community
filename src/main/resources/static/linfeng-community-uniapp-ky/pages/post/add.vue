@@ -50,7 +50,9 @@
 			};
 		},
 		onLoad(options) {
-
+			if(!uni.getStorageSync("hasLogin")){
+				this.$u.toast('请先登录哦');
+			}
 		},
 		methods: {
 			chooseClass() {
