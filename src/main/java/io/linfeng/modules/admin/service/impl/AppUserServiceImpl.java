@@ -284,6 +284,9 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
     @Override
     public AppUserInfoResponse findUserInfoById(Integer uid, AppUserEntity user) {
         AppUserEntity userEntity = this.getById(uid);
+        if(ObjectUtil.isNull(userEntity)){
+            throw new LinfengException("用户不存在");
+        }
         AppUserInfoResponse response = new AppUserInfoResponse();
         BeanUtils.copyProperties(userEntity, response);
         return response;

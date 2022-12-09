@@ -137,24 +137,33 @@
 				this.$H.post('user/userInfoById', {
 					uid: this.uid
 				}).then(res => {
-					this.userInfo = res.result;
-					if (res.result.gender === 1) {
-						this.userInfo.gender = '男'
-					} else if (res.result.gender === 2) {
-						this.userInfo.gender = '女'
-					} else {
-						this.userInfo.gender = '保密'
+					if(res.code==0){
+						this.userInfo = res.result;
+						if (res.result.gender === 1) {
+							this.userInfo.gender = '男'
+						} else if (res.result.gender === 2) {
+							this.userInfo.gender = '女'
+						} else {
+							this.userInfo.gender = '保密'
+						}
+						
+						let user = {
+							uid: res.result.uid,
+							username: res.result.username,
+							avatar: res.result.avatar,
+						}
+						this.userJson = JSON.stringify(user)
+						uni.setNavigationBarTitle({
+							title: this.userInfo.username
+						});
+					}else{
+						setTimeout(function() {
+							uni.switchTab({
+								url: '/pages/index/index'
+							});
+						}, 1500);
 					}
-
-					let user = {
-						uid: res.result.uid,
-						username: res.result.username,
-						avatar: res.result.avatar,
-					}
-					this.userJson = JSON.stringify(user)
-					uni.setNavigationBarTitle({
-						title: this.userInfo.username
-					});
+					
 
 					this.loading = false;
 				})
