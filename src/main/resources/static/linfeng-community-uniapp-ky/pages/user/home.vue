@@ -27,7 +27,7 @@
 							shape="circle" size="mini">
 							<text>已关注</text>
 						</u-button>
-						<u-button @click="" :custom-style="btnStyle2"
+						<u-button  :custom-style="btnStyle2"
 							shape="circle" size="mini">
 							<text style="margin: 0 15rpx;">私信</text>
 						</u-button>
@@ -36,6 +36,7 @@
 			</view>
 			<!-- 帖子 -->
 			<view>
+				<view class="title-desc">发布的动态</view>
 				<post-list :list="postList" :loadStatus="loadStatus"></post-list>
 			</view>
 		</view>
@@ -190,8 +191,8 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		position: relative;
-		height: 500rpx;
+		// position: relative;
+		// height: 500rpx;
 	}
 
 	.avatar {
@@ -284,6 +285,11 @@
 			margin-right: 10rpx;
 		}
 	}
-
+	.title-desc{
+		margin-left: 30rpx;
+		font-size: 28rpx;
+		color: #565656;
+		font-weight: 300;
+	}
 
 </style>
