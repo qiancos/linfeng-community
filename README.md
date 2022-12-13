@@ -1,13 +1,13 @@
 <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">linfeng-community 开源版</h1>
-<h4 align="center">基于SpringBoot+MybatisPlus+Shiro+Quartz+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目</h4>
+<h4 align="center">基于SpringBoot+MybatisPlus+Shiro+Quartz+WebSocket+jwt+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目</h4>
 
  [官网](https://net.linfeng.tech) |[用户端演示](https://gitee.com/virus010101/linfeng-community/raw/master/images/er.jpg) | [后台演示](https://dev.linfeng.tech) | [交流群](https://gitee.com/virus010101/linfeng-community/raw/master/images/qrcode.jpg) | [文档](https://www.kancloud.cn/linfengkj/linfeng_community/2754703) | [版本区别](https://net.linfeng.tech/version/version.html) | [Github](https://github.com/virus010101/linfeng-community) 
 
 #### 1.介绍
 
-林风社交论坛uniapp**小程序/H5/APP版本**基于SpringBoot+MybatisPlus+Shiro+Quartz+jwt+websocket+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目。 项目分为Uniapp用户端（**兼容H5、微信小程序、APP端**）和Vue后台管理端（包括完整的权限处理）， 基于以下技术栈开发：SpringBoot、MybatisPlus、Shiro、Quartz、jwt、Redis、Vue、Uniapp、MySQL5.7。
+林风社交论坛uniapp**小程序/H5/APP版本**基于SpringBoot+MybatisPlus+Shiro+Quartz+jwt+websocket+Redis+Vue+Uniapp的前后端分离的社交论坛问答发帖/BBS项目。 项目分为Uniapp用户端（**兼容H5、微信小程序、APP端**）和Vue后台管理端（包括完整的权限处理）， 基于以下技术栈开发：SpringBoot、MybatisPlus、Shiro、Quartz、jwt、websocket、Redis、Vue、Uniapp、MySQL。
 
-功能：图文帖，短视频，圈子，私聊，微信支付（小程序/H5/app），付费贴，积分签到，钱包充值，积分余额兑换，话题标签，抽奖大转盘，手机号邮箱登录，虚拟用户发帖，举报，第三方广告，会员模块，自研即时通讯IM ，好友模块等完整功能，直接看演示更直观↓↓↓↓↓↓
+功能：图文帖，短视频，圈子，私聊，微信支付（小程序/H5/app），付费贴，积分签到，钱包充值，积分余额兑换，话题标签，抽奖大转盘，手机号邮箱登录，虚拟用户发帖，举报，第三方广告，会员模块，即时通讯IM ，好友模块等完整功能，直接看演示更直观↓↓↓↓↓↓
 
 ***后台前端的代码在 src\main\resources\static\linfeng-community-vue目录下！***
 
@@ -117,7 +117,9 @@ https://github.com/virus010101/linfeng-community
 
 https://net.linfeng.tech/version/version.html
 
-了解更多请查看**官网**：https://net.linfeng.tech
+了解更多请查看：
+
+[林风社交论坛官网](https://net.linfeng.tech) 
 
 4.SQL文件开源的，在QQ群，开源不易，**请左上角star后备注gitee的用户名加QQ群（640700429）获取**
 
