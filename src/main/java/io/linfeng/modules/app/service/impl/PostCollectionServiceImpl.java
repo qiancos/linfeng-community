@@ -48,8 +48,9 @@ public class PostCollectionServiceImpl extends ServiceImpl<PostCollectionDao, Po
     @Override
     public Integer collectCount(Integer postId) {
 
-        return baseMapper.selectCount(new LambdaQueryWrapper<PostCollectionEntity>()
-                .eq(PostCollectionEntity::getPostId, postId));
+        return this.lambdaQuery()
+                .eq(PostCollectionEntity::getPostId,postId)
+                .count();
     }
 
     @Override

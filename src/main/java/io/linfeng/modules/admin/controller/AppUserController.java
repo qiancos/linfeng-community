@@ -8,7 +8,8 @@
  * Copyright (c) 2021-2023 linfeng all rights reserved.
  * 版权所有 ，侵权必究！
  * -----------------------------------
- */package io.linfeng.modules.admin.controller;
+ */
+package io.linfeng.modules.admin.controller;
 
 import java.util.Arrays;
 import java.util.Map;
