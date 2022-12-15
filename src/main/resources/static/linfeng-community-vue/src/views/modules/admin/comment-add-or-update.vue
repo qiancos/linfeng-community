@@ -53,9 +53,6 @@
           pid: [
             { required: true, message: '父级id不能为空', trigger: 'blur' }
           ],
-          // type: [
-          //   { required: true, message: '评论类型:1帖子不能为空', trigger: 'blur' }
-          // ],
           uid: [
             { required: true, message: '评论作者ID不能为空', trigger: 'blur' }
           ],
