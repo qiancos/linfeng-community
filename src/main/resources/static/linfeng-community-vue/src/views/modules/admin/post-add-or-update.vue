@@ -3,7 +3,7 @@
     :title="!dataForm.id ? '新增' : '修改'"
     :close-on-click-modal="false"
     :visible.sync="visible">
-    <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmit()" label-width="80px">
+    <el-form :model="dataForm"  ref="dataForm" @keyup.enter.native="dataFormSubmit()" label-width="80px">
 
     <el-form-item label="浏览量" prop="readCount">
       <el-input v-model="dataForm.readCount" placeholder="浏览量"></el-input>
@@ -46,50 +46,7 @@
           createTime: '',
           status:'',
         },
-        dataRule: {
-          uid: [
-            { required: true, message: '用户id不能为空', trigger: 'blur' }
-          ],
-          topicId: [
-            { required: true, message: '圈子id不能为空', trigger: 'blur' }
-          ],
-          discussId: [
-            { required: true, message: '话题id不能为空', trigger: 'blur' }
-          ],
-          voteId: [
-            { required: true, message: '投票id不能为空', trigger: 'blur' }
-          ],
-          title: [
-            { required: true, message: '标题不能为空', trigger: 'blur' }
-          ],
-          content: [
-            { required: true, message: '内容不能为空', trigger: 'blur' }
-          ],
-          media: [
-            { required: true, message: '文件不能为空', trigger: 'blur' }
-          ],
-          readCount: [
-            { required: true, message: '浏览量不能为空', trigger: 'blur' }
-          ],
-          postTop: [
-            { required: true, message: '置顶不能为空', trigger: 'blur' }
-          ],
-          type: [
-            { required: true, message: '帖子类型：1 图文 ，2视频 ，3文章，4投票不能为空', trigger: 'blur' }
-          ],
-          address: [
-            { required: true, message: '地址名称不能为空', trigger: 'blur' }
-          ],
-          longitude: [
-            { required: true, message: '经度不能为空', trigger: 'blur' }
-          ],
-          latitude: [
-            { required: true, message: '纬度不能为空', trigger: 'blur' }
-          ],
-          createTime: [
-            { required: true, message: '创建时间不能为空', trigger: 'blur' }
-          ]
-        }
+        
       }
     },
     methods: {

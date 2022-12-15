@@ -25,14 +25,6 @@
 
       <el-button @click="getDataList()">查询</el-button>
       <el-button @click="refresh()">重置</el-button>
-      
-        <!-- <el-button
-          v-if="isAuth('admin:post:delete')"
-          type="danger"
-          @click="statusHandle()"
-          :disabled="dataListSelections.length <= 0"
-          >批量审核</el-button
-        > -->
         <el-button
           v-if="isAuth('admin:post:delete')"
           type="danger"
@@ -115,9 +107,7 @@
         <template slot-scope="scope">
           <div>
             <el-tag v-if="scope.row.type == 1" type="success">图文</el-tag>
-            <el-tag v-else-if="scope.row.type == 2" type="warning">视频</el-tag>
-            <el-tag v-else-if="scope.row.type == 3" type="info">文章</el-tag>
-            <el-tag v-else type="danger">投票</el-tag>
+            <el-tag v-else type="danger">未知</el-tag>
           </div>
         </template>
       </el-table-column>
@@ -262,14 +252,12 @@
         >
       </span>
     </el-dialog>
-
     <el-dialog
       title="图片预览"
       :visible.sync="dialogVisible2"
       width="60%"
       :before-close="handleClose"
     >
-    
     <div class="position">图片展示</div>
     <div class="images">
       <div v-for="(item, index) in media" :key="index" class="image-middle">  

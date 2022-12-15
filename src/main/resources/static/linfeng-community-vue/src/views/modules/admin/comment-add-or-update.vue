@@ -7,9 +7,6 @@
     <el-form-item label="父级id" prop="pid">
       <el-input v-model="dataForm.pid" placeholder="父级id"></el-input>
     </el-form-item>
-    <!-- <el-form-item label="评论类型:1帖子" prop="type">
-      <el-input v-model="dataForm.type" placeholder="评论类型:1帖子"></el-input>
-    </el-form-item> -->
     <el-form-item label="评论作者ID" prop="uid">
       <el-input v-model="dataForm.uid" placeholder="评论作者ID"></el-input>
     </el-form-item>

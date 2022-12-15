@@ -37,9 +37,6 @@
         </el-upload>
         <p class="formInfo">建议尺寸：100*100像素，jpg、png图片类型</p>
       </el-form-item>
-      <!-- <el-form-item label="图片" prop="coverImage">
-      <el-input v-model="dataForm.coverImage" placeholder="图片"></el-input>
-    </el-form-item> -->
     </el-form>
     <span slot="footer" class="dialog-footer">
       <el-button @click="visible = false">取消</el-button>

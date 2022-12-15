@@ -29,12 +29,6 @@
         align="center"
         label="父级id">
       </el-table-column>
-      <!-- <el-table-column
-        prop="type"
-        header-align="center"
-        align="center"
-        label="评论类型:1帖子">
-      </el-table-column> -->
       <el-table-column
         prop="uid"
         header-align="center"
