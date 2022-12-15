@@ -45,5 +45,10 @@ public class HomeRateResponse implements Serializable {
     @ApiModelProperty(value = "昨日新增用户")
     private Object yesterdayNewUserNum;
 
+    @ApiModelProperty(value = "昨日评论数量")
+    private Object yesterdayCommentCount;
+
+    @ApiModelProperty(value = "评论数量")
+    private Object commentCount;
 
 }

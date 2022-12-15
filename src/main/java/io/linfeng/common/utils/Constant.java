@@ -38,14 +38,21 @@ public class Constant {
 
     public static final String ORDER_DESC_READCOUNT = "read_count desc";
 
-    public static final Integer NOT_READ = 0;
-    public static final Integer HAS_READ = 1;
+
 
     /**
      * 用户是否禁用
      */
     public static final Integer USER_NORMAL = 0;
     public static final Integer USER_BANNER = 1;
+
+
+    /**
+     * 评论状态
+     * 0 下架  1正常
+     */
+    public static final Integer COMMENT_DOWN = 0;
+    public static final Integer COMMENT_NORMAL = 1;
 
 
     /**

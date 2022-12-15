@@ -5,16 +5,16 @@
         <el-card :bordered="false" dis-hover :padding="12">
           <div class="acea-row row-between-wrapper">
             <div class="acea-row align-center">
-              <span class="main_tit">会员充值</span>
+              <span class="main_tit">评论数量</span>
             </div>
-            <el-tag type="primary">今日</el-tag>
+            <el-tag type="primary">近一天</el-tag>
           </div>
           <div class="content" v-if="viewData">
-            <span class="content-number spBlock my15">0</span>
+            <span class="content-number spBlock my15">{{viewData.yesterdayCommentCount}}</span>
             <el-divider></el-divider>
             <div class="acea-row row-between-wrapper">
-              <span class="content-time">昨日数据</span>
-              <span class="content-time">0 元</span>
+              <span class="content-time">总评论</span>
+              <span class="content-time">{{viewData.commentCount}}条</span>
             </div>
           </div>
         </el-card>

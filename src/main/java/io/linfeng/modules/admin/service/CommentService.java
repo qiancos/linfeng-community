@@ -38,5 +38,9 @@ public interface CommentService extends IService<CommentEntity> {
     Integer getCountByPostId(Integer id);
 
     AppPageUtils queryCommentPage(Integer postId, Integer page);
+
+    Integer getYesterdayCount();
+
+    Integer getAllCount();
 }
 

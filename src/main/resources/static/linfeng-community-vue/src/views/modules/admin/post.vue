@@ -253,18 +253,17 @@
       </span>
     </el-dialog>
     <el-dialog
-      title="图片预览"
+      title="图片预览(点击查看)"
       :visible.sync="dialogVisible2"
       width="60%"
       :before-close="handleClose"
     >
-    <div class="position">图片展示</div>
     <div class="images">
       <div v-for="(item, index) in media" :key="index" class="image-middle">  
         <el-card shadow="hover" :body-style="{ padding: '10px' }" >     
         <img :src="media[index]" class="image" @click="goPic(media[index])"/> 
         <div style="text-align:center;padding-top:12px">
-        <span>图{{index}}</span>
+        <span>图{{index+1}}</span>
         </div>
         </el-card>
       </div>
