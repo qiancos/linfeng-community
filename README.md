@@ -143,8 +143,6 @@ https://net.linfeng.tech/version/version.html
 
 #### 6.标准版更新记录
 
-
-
 ***当前版本V1.7.0***
 
 <u>2022.12.5</u>
