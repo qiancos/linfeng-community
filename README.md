@@ -94,7 +94,7 @@ https://dev.linfeng.tech
 1.  配置数据库和redis。先启动redis，再启动后端api服务
 2.  数据库请使用MySQL5.7，使用MySQL8也可以。sql文件请点个star后再加群获取
 3.  配置后台前端  先npm install 下载依赖后，再npm run dev即可
-4.  用户端uniapp代码  先npm install 安装依赖后，再在HbuilderX中启动项目
+4.  用户端代码先utils/config.js下配置后端接口 再npm install 安装依赖，然后在HbuilderX中启动项目
 5.  具体配置可以参考标准版的文档或群文档
 
 **林风社交论坛项目标准版文档地址**：https://www.kancloud.cn/linfengkj/linfeng_community/2754703
