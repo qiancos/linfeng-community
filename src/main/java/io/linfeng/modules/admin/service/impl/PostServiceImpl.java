@@ -60,12 +60,8 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         QueryWrapper<PostEntity> queryWrapper=new QueryWrapper<>();
-        //条件查询
         String key = (String)params.get("key");
         String status = (String)params.get("status");
-//        if(!ObjectUtil.isEmpty(key)){
-//            queryWrapper.like("content", key).or().like("title",key);
-//        }
         queryWrapper
                 .like(!ObjectUtil.isEmpty(status),"content", key)
                 .or()
@@ -93,8 +89,6 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
     }
 
 
-
-
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void deleteByAdmin(List<Integer> ids) {
@@ -108,7 +102,8 @@ public class PostServiceImpl extends ServiceImpl<PostDao, PostEntity> implements
     @Override
     public Integer getPostNumByUid(Integer uid) {
 
-        return this.lambdaQuery().eq(PostEntity::getUid,uid)
+        return this.lambdaQuery()
+                .eq(PostEntity::getUid,uid)
                 .count();
     }
 
