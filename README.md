@@ -69,7 +69,7 @@ https://dev.linfeng.tech
 
 https://dev.linfeng.tech
 
-演示账号： test      （test2 或者test3也可以） 
+演示账号： test      （test2 、test3也可以） 
 
 密码：123456
 
