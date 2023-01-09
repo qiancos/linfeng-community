@@ -55,9 +55,7 @@
 										:src="mediaItem"></image>
 								</view>
 							</block>
-
 						</block>
-
 					</view>
 
 					<!-- 位置 -->
@@ -79,7 +77,6 @@
 							<u-icon name="heart"></u-icon>
 							<text class="count">{{ item.collectionCount }}</text>
 						</view>
-
 						<view class="p-item margin50">
 							<text class="iconfont icon-pinglun"></text>
 							<text class="count">{{ item.commentCount }}</text>
@@ -108,19 +105,7 @@
 		props: {
 			list: Array,
 			loadStatus: String,
-			handle: {
-				default: false,
-				type: Boolean
-			},
-			showTopic: {
-				default: true,
-				type: Boolean
-			},
 			uid: Number,
-			admin: {
-				default: false,
-				type: Boolean
-			}
 		},
 		data() {
 			return {
