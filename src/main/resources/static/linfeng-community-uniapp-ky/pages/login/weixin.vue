@@ -16,7 +16,7 @@
 					color: "#fff",
 					backgroundColor: '#333333'
 				},
-				logo: ""
+				logo: "",
 			};
 		},
 		onLoad() {
@@ -30,7 +30,9 @@
 			},
 			getSysInfo() {
 				this.$H.get("system/miniConfig").then(res => {
-					this.logo = res.logo;
+					if(res.code==0){
+						this.logo = res.logo;
+					}
 				})
 			},
 
