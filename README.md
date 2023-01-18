@@ -23,7 +23,7 @@
 
 ##### 2.1用户端演示版本
 
-演示站为标准版，输入任意手机号即可注册登录
+演示站点为标准版（h5、app端输入任意手机号即可注册登录体验）
 
 ![移动端H5二维码](https://gitee.com/virus010101/linfeng-community/raw/master/images/er.jpg)
 
