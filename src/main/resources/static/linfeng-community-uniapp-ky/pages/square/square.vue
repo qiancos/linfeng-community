@@ -101,7 +101,7 @@
 				this.page = 1
 				this.pageList = []
 				this.getPostList()
-			}else if (this.pageCurrent == 1) {
+			} else if (this.pageCurrent == 1) {
 				this.userList = [];
 				this.getUserRanking();
 			}
@@ -116,8 +116,8 @@
 			},
 			toSearch() {
 				uni.showToast({
-					icon:'none',
-					title:'暂无搜索'
+					icon: 'none',
+					title: '暂无搜索'
 				})
 			},
 			pageTabChange(index) {

@@ -35,8 +35,6 @@
 				this.page++;
 				this.getMyPostList();
 			}
-
-
 		},
 		methods: {
 			getCollectPostList() {
