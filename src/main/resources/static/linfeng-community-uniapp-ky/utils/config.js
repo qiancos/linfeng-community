@@ -11,6 +11,7 @@ const domain = 'http://' + baseUrl + "/app/";
 // const domain = 'https://' + baseUrl + "/app/"; 
 
 
+
 export default {
 	baseUrl: baseUrl,
 	domain: domain,
