@@ -40,7 +40,7 @@
 				<u-empty margin-top="100" text="暂无内容" mode="favor"></u-empty>
 			</block>
 			<block v-else>
-				<view style="margin: 30rpx 0;">
+				<view class="no-info">
 					<u-loadmore :status="loadStatus" />
 				</view>
 			</block>
@@ -241,6 +241,10 @@
 
 				}
 			}
+		}
+
+		.no-info {
+			margin: 30rpx 0;
 		}
 	}
 </style>
