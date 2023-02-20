@@ -54,9 +54,11 @@ public class CommentServiceImpl extends ServiceImpl<CommentDao, CommentEntity> i
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
+        QueryWrapper<CommentEntity> queryWrapper=new QueryWrapper<>();
+        queryWrapper.lambda().orderByDesc(CommentEntity::getId);
         IPage<CommentEntity> page = this.page(
                 new Query<CommentEntity>().getPage(params),
-                new QueryWrapper<>()
+                queryWrapper
         );
 
         return new PageUtils(page);
@@ -90,10 +92,9 @@ public class CommentServiceImpl extends ServiceImpl<CommentDao, CommentEntity> i
 
     @Override
     public Integer getCountByPostId(Integer id) {
-        return baseMapper.selectCount(
-                new LambdaQueryWrapper<CommentEntity>()
-                        .eq(CommentEntity::getStatus,  Constant.COMMENT_NORMAL)
-                        .eq(CommentEntity::getPostId, id));
+        return this.lambdaQuery()
+                .eq(CommentEntity::getStatus,  Constant.COMMENT_NORMAL)
+                .eq(CommentEntity::getPostId, id).count();
     }
 
     @Override

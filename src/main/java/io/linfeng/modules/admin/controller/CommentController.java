@@ -65,15 +65,6 @@ public class CommentController {
     }
 
 
-    @PostMapping("/save")
-    @RequiresPermissions("admin:comment:save")
-    @ApiOperation("评论保存")
-    public R save(@RequestBody CommentEntity comment){
-		commentService.save(comment);
-
-        return R.ok();
-    }
-
 
     @PostMapping("/update")
     @RequiresPermissions("admin:comment:update")
