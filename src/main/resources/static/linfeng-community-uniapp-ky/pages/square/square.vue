@@ -123,7 +123,7 @@
 				uni.navigateTo({
 					url: '/pages/post/add'
 				})
-			}
+			},
 			pageTabChange(index) {
 				this.pageCurrent = index
 			},
