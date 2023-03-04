@@ -132,7 +132,7 @@
 					}
 				})
 			},
-			chat() {
+			chat(){
 				this.$u.toast('开源版暂未开放')
 			},
 			getUserInfo() {

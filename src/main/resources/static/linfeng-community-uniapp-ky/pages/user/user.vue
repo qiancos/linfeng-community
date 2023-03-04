@@ -154,8 +154,8 @@
 	.head {
 		padding: 20rpx;
 		background-color: #fff;
-	
-	.sub-txt {
+
+		.sub-txt {
 			font-size: 24rpx;
 			color: #616161;
 			display: block;
