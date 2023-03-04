@@ -27,8 +27,7 @@
 							shape="circle" size="mini">
 							<text>已关注</text>
 						</u-button>
-						<u-button  :custom-style="btnStyle2"
-							shape="circle" size="mini">
+						<u-button :custom-style="btnStyle2" @click="chat" shape="circle" size="mini">
 							<text style="margin: 0 15rpx;">私信</text>
 						</u-button>
 					</view>
@@ -40,10 +39,10 @@
 				<post-list :list="postList" :loadStatus="loadStatus"></post-list>
 			</view>
 		</view>
-		
+
 		<!-- 发贴入口 -->
 		<add-post-tag></add-post-tag>
-		
+
 	</view>
 </template>
 
@@ -118,7 +117,7 @@
 					}
 				})
 			},
-			
+
 			getPostList() {
 				this.loadStatus = "loading";
 				this.$H.post('post/list', {
@@ -133,12 +132,14 @@
 					}
 				})
 			},
-			
+			chat(){
+				this.$u.toast('开源版暂未开放')
+			},
 			getUserInfo() {
 				this.$H.post('user/userInfoById', {
 					uid: this.uid
 				}).then(res => {
-					if(res.code==0){
+					if (res.code == 0) {
 						this.userInfo = res.result;
 						if (res.result.gender === 1) {
 							this.userInfo.gender = '男'
@@ -147,7 +148,7 @@
 						} else {
 							this.userInfo.gender = '保密'
 						}
-						
+
 						let user = {
 							uid: res.result.uid,
 							username: res.result.username,
@@ -157,14 +158,14 @@
 						uni.setNavigationBarTitle({
 							title: this.userInfo.username
 						});
-					}else{
+					} else {
 						setTimeout(function() {
 							uni.switchTab({
 								url: '/pages/index/index'
 							});
 						}, 1500);
 					}
-					
+
 
 					this.loading = false;
 				})
@@ -178,8 +179,6 @@
 	}
 </style>
 <style lang="scss" scoped>
-
-
 	.container {
 		padding: 30rpx;
 		position: relative;
@@ -191,8 +190,6 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		// position: relative;
-		// height: 500rpx;
 	}
 
 	.avatar {
@@ -285,11 +282,12 @@
 			margin-right: 10rpx;
 		}
 	}
-	.title-desc{
-		margin-left: 30rpx;
-		font-size: 28rpx;
-		color: #565656;
-		font-weight: 300;
-	}
 
+	.title-desc {
+		// margin-left: 30rpx;
+		margin: auto;
+		font-size: 32rpx;
+		color: #565656;
+		font-weight: 500;
+	}
 </style>

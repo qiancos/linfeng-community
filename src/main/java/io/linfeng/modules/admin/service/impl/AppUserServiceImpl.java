@@ -300,6 +300,9 @@ public class AppUserServiceImpl extends ServiceImpl<AppUserDao, AppUserEntity> i
     public Integer miniWxLogin(WxLoginForm form) {
 
         String openId = getOpenId(form.getCode());
+        if(io.linfeng.common.utils.ObjectUtil.isEmpty(openId)){
+            throw new LinfengException("请正确配置appId和密钥");
+        }
         //根据openId获取数据库信息 判断用户是否登录
         AppUserEntity user = this.lambdaQuery().eq(AppUserEntity::getOpenid, openId).one();
         if (ObjectUtil.isNotNull(user)) {
