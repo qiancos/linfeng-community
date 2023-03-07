@@ -93,7 +93,7 @@ public class AppUserController {
     }
 
 
-    @PostMapping("/ban/{id}")
+    @GetMapping("/ban/{id}")
     @RequiresPermissions("admin:user:update")
     @ApiOperation("用户禁用")
     public R ban(@PathVariable("id") Integer id){
@@ -103,7 +103,7 @@ public class AppUserController {
     }
 
 
-    @PostMapping("/openBan/{id}")
+    @GetMapping("/openBan/{id}")
     @RequiresPermissions("admin:user:update")
     @ApiOperation("用户解除禁用")
     public R openBan(@PathVariable("id") Integer id){
