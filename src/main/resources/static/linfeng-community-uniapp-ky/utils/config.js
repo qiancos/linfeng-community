@@ -8,7 +8,7 @@ const shareH5Url = "https://www.linfeng.tech/#/"; //H5分享路径
 
 //线上环境配置
 const baseUrl = "wxapi.linfeng.tech";
-const domain = 'https://' + baseUrl + "/app/"; 
+const domain = 'https://' + baseUrl + "/app/";
 
 
 
