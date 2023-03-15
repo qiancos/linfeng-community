@@ -14,12 +14,6 @@
       <el-form-item label="分类名称" prop="cateName">
         <el-input v-model="dataForm.cateName" placeholder="分类名称"></el-input>
       </el-form-item>
-      <el-form-item label="是否推荐" prop="isTop">
-        <el-radio-group v-model="dataForm.isTop">
-          <el-radio :label="1">是</el-radio>
-          <el-radio :label="0">否</el-radio>
-        </el-radio-group>
-      </el-form-item>
 
       <el-form-item label="分类图片" prop="coverImage">
         <el-upload
@@ -61,9 +55,6 @@ export default {
       dataRule: {
         cateName: [
           { required: true, message: "分类名称不能为空", trigger: "blur" },
-        ],
-        isTop: [
-          { required: true, message: "是否推荐不能为空", trigger: "blur" },
         ],
         coverImage: [
           { required: true, message: "图片不能为空", trigger: "blur" },
