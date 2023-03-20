@@ -35,13 +35,13 @@
 
 https://dev.linfeng.tech
 
-演示账号1： test       密码：123456
+演示账号1： test         密码：123456
 
 演示账号2： test2       密码：123456
 
 演示账号3： test3       密码：123456
 
-
+（推荐使用演示账号2、3登录）
 
   [查看开源版功能清单](https://net.linfeng.tech/version/version.html)
 
@@ -73,7 +73,7 @@ https://dev.linfeng.tech
 
 密码：123456
 
-（**注意**：如果多人同时登录同一账号，已登录在线用户会被挤出；所以可在三个测试账号任选一个体验）
+（**注意**：如果多人同时登录同一账号，已登录在线用户会被挤出；推荐使用演示账号2、3登录）
 
 ![](https://gitee.com/virus010101/linfeng-community/raw/master/images/showPic05.png)
 
