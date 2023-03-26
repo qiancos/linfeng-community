@@ -67,10 +67,10 @@
 							mobile: this.form.mobile
 						}).then(res => {
 							if (res.code == 0) {
-								uni.hideLoading();
 								this.$refs.uCode.start();
-								this.$u.toast(res.msg);
 							}
+							this.$u.toast(res.msg);
+							uni.hideLoading();
 						})
 					} else {
 						this.$u.toast('倒计时结束后再发送');

@@ -27,12 +27,11 @@
 		},
 		data() {
 			return {
-				sessionUid: uni.getStorageSync('userInfo').uid,
 				loadStatus1: 'loadmore',
 				loadStatus2: 'loadmore',
 				page1: 1,
 				page2: 1,
-				shareCover: '',
+				shareCover: '',//分享封面
 				followUserPost: [],
 				lastPost: [],
 				tabList: [{
