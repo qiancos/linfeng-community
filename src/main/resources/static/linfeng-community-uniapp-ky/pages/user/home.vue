@@ -159,6 +159,7 @@
 							title: this.userInfo.username
 						});
 					} else {
+						this.$u.toast(res.msg)
 						setTimeout(function() {
 							uni.switchTab({
 								url: '/pages/index/index'
