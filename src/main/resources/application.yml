@@ -86,7 +86,7 @@ linfeng:
     header: token
 
 #文件大小限制
-qiniu:
+oss:
   # 文件大小用户端和后台管理端 单位M
   max-size: 30
   admin-max-size: 5
