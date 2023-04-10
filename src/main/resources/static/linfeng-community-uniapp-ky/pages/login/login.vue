@@ -63,6 +63,7 @@
 						uni.showLoading({
 							title: '正在获取验证码'
 						})
+						//模拟发送
 						this.$H.post("user/sendSmsCode", {
 							mobile: this.form.mobile
 						}).then(res => {
