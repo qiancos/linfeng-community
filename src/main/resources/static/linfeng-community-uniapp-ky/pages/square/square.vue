@@ -148,7 +148,7 @@
 			},
 			// 根据分页和分类展示帖子列表
 			getPostList() {
-				console.log('classId:', this.classId)
+				// console.log('classId:', this.classId)
 				this.loadPostStatus = 'loading';
 				this.$H
 					.post('post/list', {
