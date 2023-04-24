@@ -69,7 +69,7 @@ public class AppPostController {
     public R followUserPost(@RequestParam Integer page, @LoginUser AppUserEntity user){
 
         AppPageUtils pages =postService.followUserPost(page,user);
-        if(ObjectUtil.isNull(page)){
+        if(ObjectUtil.isNull(pages)){
             return R.error("您没有关注的用户");
         }
         return R.ok().put("result", pages);
