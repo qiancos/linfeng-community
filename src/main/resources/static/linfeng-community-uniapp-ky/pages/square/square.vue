@@ -53,7 +53,7 @@
 </template>
 
 <script>
-	import addPostTag from '../../components/add-post-tag/add-post-tag.vue'
+	import addPostTag from '@/components/add-post-tag/add-post-tag.vue'
 	export default {
 		data() {
 			return {
